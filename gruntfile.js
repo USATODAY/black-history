@@ -67,7 +67,7 @@ module.exports = function(grunt) {
         options: {
           namespace: "templates",
           processName: function(filepath) {
-            var result = filepath.substr(10, filepath.length - 4);
+            var result = filepath.substr(14, filepath.length - 4);
             return result;
           },
           amd: true,

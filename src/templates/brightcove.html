@@ -1,0 +1,52 @@
+<!-- Start of Brightcove Player -->
+
+<div style="display:none">
+Interactives video player with single clip 
+</div>
+
+<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C 
+found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+-->
+
+
+
+<object id="myExperience<%=video_id%>" class="BrightcoveExperience">
+  <param name="bgcolor" value="#FFFFFF" />
+  <param name="width" value="640" />
+  <param name="height" value="390" />
+  <param name="playerID" value="1797379879001" />
+  <param name="playerKey" value="AQ~~,AAAABvaL8JE~,ufBHq_I6FnzwGj3ZkG57q5Cei-R6yZca" />
+  <param name="isSlim" value="true" />
+  <param name="dynamicStreaming" value="true" />
+  <param name="includeAPI" value="true" />
+    
+  <param name="@videoPlayer" value="<%=video_id%>" />
+  <param name="templateLoadHandler" value="onTemplateLoad" />
+  <param name="templateReadyHandler" value="onTemplateReady" />
+</object>
+
+  <!-- <script>
+  var onTemplateLoad = function(experienceID) {
+          console.log(experienceID);
+          //console.log("onTemplateLoad");
+          // get a reference to the first player and API Modules
+          player = brightcove.api.getExperience(experienceID);
+          APIModules = brightcove.api.modules.APIModules;
+        };
+          
+        var onTemplateReady = function(evt) {
+          //console.log("onTemplateReady");
+          // get references to modules for the first player
+          videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);
+          // add a listener for when the video finishes playing
+          videoPlayer.addEventListener( brightcove.api.events.MediaEvent.COMPLETE, onComplete);
+          // get the URL link from the video meta data
+          videoPlayer.getCurrentVideo( function (videoDTO) {
+            redirectURL = videoDTO.linkURL;
+          });
+        };
+  </script> -->
+
+
+<!-- End of Brightcove Player -->
