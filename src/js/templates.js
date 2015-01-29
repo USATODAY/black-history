@@ -2,7 +2,7 @@ define(function(){
 
 this["templates"] = this["templates"] || {};
 
-this["templates"]["tes/template.html"] = function(obj) {
+this["templates"]["template.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {

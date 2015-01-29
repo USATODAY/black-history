@@ -10,6 +10,8 @@ define(
   function(jQuery, _, mobileDetect, jQueryUI, jQueryUITouchPunch, templates){
     var app = app || {};
 
+    console.log(templates);
+
     app.init = function() {
       console.log("app initialized");
       jQuery("body").append(templates["template.html"]({test: "Hello world!"}));
