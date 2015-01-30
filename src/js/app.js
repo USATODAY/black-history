@@ -2,16 +2,19 @@ define(
   [
     'jquery',
     'underscore',
-    'mobile_detect',
-    'jquery_ui',
-    'jquery_ui_touch_punch',
-    'templates'
+    'dataManager',
+    'views/AppView',
+    'templates',
+    'jquery_ui_touch_punch'    
   ],
-  function(jQuery, _, mobileDetect, jQueryUI, jQueryUITouchPunch, templates){
+  function(jQuery, _, dataManager, AppView, templates, jQueryUITouchPunch){
     return {
       init: function() {
         console.log("app initialized");
         var _this = this;
+        var appView = new AppView();
+        dataManager.getData("http://reqr.es/api/users?page=2");
+        
 
         window.onTemplateLoad = function(experienceID) {
           console.log(_this);
@@ -32,6 +35,13 @@ define(
           });
           
          };
+        
+       
+         // this.renderVideoTest();
+         
+      },
+
+      renderVideoTest: function() {
         jQuery(".iap-brightcove-wrap").append(templates["brightcove.html"]({video_id: "4018865801001"}));
          brightcove.createExperiences();
 
@@ -39,10 +49,7 @@ define(
           _this.reformatVideos(_this);
         });
 
-       
-
-         
-      },
+       },
 
       onComplete: function(event) {
         console.log(event.target.experience.id);
