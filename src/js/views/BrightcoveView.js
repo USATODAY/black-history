@@ -10,7 +10,7 @@ define(
   function(jQuery, _, Backbone, dataManager, templates, jQueryUITouchPunch){
         return Backbone.View.extend({
             initialize: function() {
-              this.listenTo(Backbone, "resize", this.reformatVideos);
+              this.listenTo(Backbone, "window:resize", this.reformatVideos);
               this.listenTo(Backbone, "video:ended", this.removeVideo);
             },
             template: templates['brightcove.html'],
