@@ -30,7 +30,9 @@ require.config({
 });
 
   var specs = [
-    '../spec/mainSpec'
+    '../spec/appSpec',
+    '../spec/AppViewSpec',
+    '../spec/BrightcoveViewSpec'
   ];
 
   // Load Jasmine - This will still create all of the normal Jasmine browser globals unless `boot.js` is re-written to use the
@@ -40,7 +42,7 @@ require.config({
   require(['boot'], function (boot) {
 
     // Load the specs
-    require(['../spec/mainSpec'] , function (spec) {
+    require(specs , function () {
      
       // Initialize the HTML Reporter and execute the environment (setup by `boot.js`)
       window.onload()
