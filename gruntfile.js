@@ -95,8 +95,8 @@ module.exports = function(grunt) {
         tasks: ['copy:main']
       },
       test: {
-        files: ['js/spec/*.js'],
-        tasks: ['']
+        files: ['tests/spec/*.js', 'tests/*.html'],
+        tasks: ['copy:test']
       },
       html: {
         files: ['<%=config.src%>*.html'],

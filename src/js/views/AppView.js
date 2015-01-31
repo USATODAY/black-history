@@ -5,10 +5,9 @@ define(
     'backbone',
     'dataManager',
     'views/BrightcoveView',
-    'templates',
-    'jquery_ui_touch_punch'
+    'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, templates, jQueryUITouchPunch){
+  function(jQuery, _, Backbone, dataManager, BrightcoveView, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
