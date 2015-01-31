@@ -4,10 +4,9 @@ define(
     'underscore',
     'backbone',
     'dataManager',
-    'templates',
-    'jquery_ui_touch_punch'
+    'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, templates, jQueryUITouchPunch){
+  function(jQuery, _, Backbone, dataManager, templates){
         return Backbone.View.extend({
             initialize: function() {
               this.listenTo(Backbone, "window:resize", this.reformatVideos);

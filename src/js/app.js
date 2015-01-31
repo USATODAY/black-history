@@ -5,10 +5,9 @@ define(
     'backbone',
     'dataManager',
     'views/AppView',
-    'templates',
-    'jquery_ui_touch_punch'    
+    'templates' 
   ],
-  function(jQuery, _, Backbone, dataManager, AppView, templates, jQueryUITouchPunch){
+  function(jQuery, _, Backbone, dataManager, AppView, templates){
     return {
       init: function() {
 
