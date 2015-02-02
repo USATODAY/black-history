@@ -17,7 +17,7 @@ define(
             className: 'iapp-brightcove-wrap',
             render: function() {
               //currently hard coding video_id until i get video collections/models up and running
-              this.$el.html(this.template({video_id: "4018865801001"}));
+              this.$el.html(this.template({video_id: ""}));
               return this;
             },
             activate: function() {

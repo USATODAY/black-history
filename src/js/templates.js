@@ -26,6 +26,20 @@ __p += '<!-- Start of Brightcove Player -->\n\n<div style="display:none">\nInter
 return __p
 };
 
+this["templates"]["intro.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<h2 class="iapp-intro-header">' +
+((__t = (head)) == null ? '' : __t) +
+'</h2>\n<p class="iapp-intro-chatter">' +
+((__t = (chatter)) == null ? '' : __t) +
+'</p>\n\n<div class="intro-next-button button">Next</div>';
+
+}
+return __p
+};
+
 this["templates"]["template.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;

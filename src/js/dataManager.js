@@ -13,7 +13,7 @@ define(
             jQuery.getJSON(url, function(data) {        
                 _this.data = data[0];
                 _this.organizeTags();
-                Backbone.trigger("dataReady");
+                Backbone.trigger("dataReady", this);
             });
         },
         organizeTags: function() {
