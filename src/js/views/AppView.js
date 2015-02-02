@@ -25,6 +25,10 @@ define(
                 var brightcoveView = new BrightcoveView();
                 this.$el.append(brightcoveView.render().el);
                 brightcoveView.activate();
+
+                _.delay(function() {
+                  brightcoveView.setVideo("4027676240001");
+                }, 2000);
             }
         });
 });

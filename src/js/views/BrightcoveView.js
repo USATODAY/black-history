@@ -51,6 +51,10 @@ define(
               this.bcPlayer.play();
             },
 
+            setVideo: function(bcId) {
+              this.bcPlayer.loadVideoByID(bcId);
+            },
+
             onVideoEnded: function(bcObj) {
               console.log(bcObj.experience);
               // bcObj.experience.unload();
