@@ -13,17 +13,14 @@ define(['models/VideoModel'],
                     'stillImage': 'img/yes.jpg'
                 };
                 this.videoModel = new VideoModel(testData);
-            })
+            });
 
-           it("should exist", function() {
-              expect(this.videoModel).toBeDefined();
-           });
+            it("should exist", function() {
+                expect(this.videoModel).toBeDefined();
+            });
 
-           it("should convert a string to an array of tags", function() {
+            it("should convert a string to an array of tags", function() {
                 expect(this.videoModel.get('tags').constructor === Array).toBe(true);
-           });
-
-           
+            });
         });
-
 });

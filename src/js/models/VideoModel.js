@@ -2,10 +2,9 @@ define(
   [
     'jquery',
     'underscore',
-    'backbone',
-    'dataManager'
+    'backbone'
   ],
-  function(jQuery, _, Backbone, dataManager){
+  function(jQuery, _, Backbone){
 
     return Backbone.Model.extend( {
         defaults: {
