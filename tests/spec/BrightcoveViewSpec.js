@@ -18,7 +18,7 @@ define(['views/BrightcoveView'],
             expect(this.brightcoveView.render()).toEqual(this.brightcoveView);
            });
 
-           it("should create a brightcove object when rendered", function() {
+           it("should create a brightcove dom object when rendered", function() {
             expect(this.brightcoveView.render().$("object")).toBeDefined();
            });
         });

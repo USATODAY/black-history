@@ -17,7 +17,7 @@ define(
             },
             render: function() {
                this.$el.html(this.template({}));
-               this.addVideo();
+               // this.addVideo();
                return this;
             },
             template: templates["app.html"],

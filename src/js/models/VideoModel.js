@@ -9,10 +9,21 @@ define(
 
     return Backbone.Model.extend( {
         defaults: {
-            'videoID': '',
+            'brightcoveID': '',
+            'interviewee': '',
             'isActive': false,
-            'videoInfo': '',
-            'tags': []
+            'videoDescription': '',
+            'tags': [],
+            'shareLanguage': '',
+            'stillImage': ''
+        },
+
+        initialize: function() {
+            if (typeof this.attributes.tags == "string"){
+        
+                this.attributes.tags = this.attributes.tags.split(', ');
+                console.log(this.get('tags'));
+            }
         }
     });
 
