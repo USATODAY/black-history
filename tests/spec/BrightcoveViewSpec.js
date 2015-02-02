@@ -1,9 +1,10 @@
-define(['views/BrightcoveView'], 
-    function(BrightcoveView) {
+define(['backbone', 'views/BrightcoveView'], 
+    function(Backbone, BrightcoveView) {
         describe("BrightcoveView", function() {
             
             beforeEach(function() {
                 this.brightcoveView = new BrightcoveView();
+
             })
 
            it("should exist", function() {
@@ -21,6 +22,7 @@ define(['views/BrightcoveView'],
            it("should create a brightcove dom object when rendered", function() {
             expect(this.brightcoveView.render().$("object")).toBeDefined();
            });
+           
         });
 
 });

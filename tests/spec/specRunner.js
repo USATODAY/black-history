@@ -34,7 +34,8 @@ require.config({
     '../spec/AppViewSpec',
     '../spec/BrightcoveViewSpec',
     '../spec/VideoModelSpec',
-    '../spec/VideoCollectionSpec'
+    '../spec/VideoCollectionSpec',
+    '../spec/dataManagerSpec'
   ];
 
   // Load Jasmine - This will still create all of the normal Jasmine browser globals unless `boot.js` is re-written to use the

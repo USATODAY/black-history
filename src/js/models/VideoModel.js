@@ -18,10 +18,8 @@ define(
         },
 
         initialize: function() {
-            if (typeof this.attributes.tags == "string"){
-        
+            if (typeof this.attributes.tags == "string"){ 
                 this.attributes.tags = this.attributes.tags.split(', ');
-                console.log(this.get('tags'));
             }
         }
     });
