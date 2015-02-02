@@ -28,6 +28,8 @@ define(
           var videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);
           var experience = player.getModule(APIModules.EXPERIENCE);
 
+          Backbone.trigger("video:ready", {player: videoPlayer, experience: experience});
+
           //trigger Backbone event and pass object with Brightcove player and experience objects as arguments
           videoPlayer.addEventListener( brightcove.api.events.MediaEvent.COMPLETE, function(e) {
             Backbone.trigger("video:ended", {player: videoPlayer, experience: experience});
