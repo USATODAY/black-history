@@ -15,7 +15,7 @@ define(
         var appView = new AppView({el: ".iapp-wrap"});
 
         //Make data request
-        dataManager.getData("http://reqr.es/api/users?page=2");
+        dataManager.getData("data/data.json");
 
         jQuery(window).resize(function() {
             Backbone.trigger("window:resize");
