@@ -6,19 +6,31 @@ define(
     'dataManager',
     'views/BrightcoveView',
     'views/IntroView',
+    'views/TagsView',
+    'collections/TagCollection',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, templates){
+  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
+                this.listenTo(Backbone, "app:advance", this.goForward);
+                this.listenTo(Backbone, "app:goBack", this.goBack);
+            },
+            events: {
+                'click .intro-next-button': 'onNextClick'
             },
             onDataReady: function() {
+                console.log(dataManager.data);
                 this.render();
+            },
+            onNextClick: function() {
+                Backbone.trigger("app:advance");
             },
             render: function() {
                this.$el.html(this.template({}));
                // this.addVideo();
+               this.addSubViews();
                return this;
             },
             template: templates["app.html"],
@@ -34,9 +46,33 @@ define(
             },
             subViews: [],
             addSubViews: function() {
+                // console.log(dataManager);
                var introView = new IntroView();
                this.$el.append(introView.render(dataManager.data).el);
                this.subViews.push(introView);
+
+               var tagsView = new TagsView({collection: new TagCollection(dataManager.data.tags)});
+               this.$el.append(tagsView.render().el);
+               this.subViews.push(tagsView);
+
+            },
+            currentSubView: 0,
+            goForward: function() {
+                console.log("go forward");
+                var oldSub = this.subViews[this.currentSubView];
+                this.currentSubView++;
+                var newSub = this.subViews[this.currentSubView];
+
+                oldSub.$el.removeClass('active').addClass('done');
+                newSub.$el.removeClass('upcoming').addClass('active');
+            },
+            goBack: function() {
+                var oldSub = this.subViews[this.currentSubView];
+                this.currentSubView--;
+                var newSub = this.subViews[this.currentSubView];
+
+                oldSub.$el.removeClass('active').addClass('upcoming');
+                newSub.$el.removeClass('done').addClass('active');
             }
         });
 });

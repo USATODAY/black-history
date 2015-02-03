@@ -40,18 +40,22 @@ __p += '<h2 class="iapp-intro-header">' +
 return __p
 };
 
+this["templates"]["tag.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p +=
+((__t = (tagName)) == null ? '' : __t);
+
+}
+return __p
+};
+
 this["templates"]["tags.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
+var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-tag-container">\n    ';
- console.log(this); _.each(tags, function(tag) { ;
-__p += '\n        <div class="iapp-tag-item">' +
-((__t = (tag)) == null ? '' : __t) +
-'</div>\n    ';
- }) ;
-__p += '\n</div>';
+__p += '<div class="iapp-tag-container">\n    \n</div>\n\n<div class="tags-next-button button">Next</div>';
 
 }
 return __p
@@ -64,6 +68,16 @@ with (obj) {
 __p += '<h3>' +
 ((__t = (test)) == null ? '' : __t) +
 '</h3>\n';
+
+}
+return __p
+};
+
+this["templates"]["video.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-video-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis architecto totam expedita quas quae cupiditate fuga incidunt omnis harum, minus unde ipsam perspiciatis odio ducimus praesentium molestias dignissimos reiciendis dicta.</div>';
 
 }
 return __p

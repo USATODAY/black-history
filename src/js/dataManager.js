@@ -28,7 +28,12 @@ define(
 
                 _.each(video.tags, function(tag) {
                     //add each tag to master tags array
-                    tags.push(tag)
+                    
+                    var tagObj = {
+                        tagName: tag
+                    };
+
+                    tags.push(tagObj);
                 });
 
             });

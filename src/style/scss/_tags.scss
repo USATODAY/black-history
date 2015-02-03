@@ -1,0 +1,14 @@
+.iapp-tag-container {
+    @extend .group;
+}
+
+.iapp-tag-item {
+    background-color: $blue;
+    color: white;
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+

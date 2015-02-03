@@ -10,11 +10,11 @@ define(
         initialize: function() {
             
         },
-        className: 'iapp-panel active',
-        template: templates['intro.html'],
+        className: 'iapp-tag-item available',
+        template: templates['tag.html'],
         render: function(data) {
-            
-            this.$el.html(this.template({head: data.project_head, chatter: data.intro_text}));
+            console.log(this.model.toJSON());
+            this.$el.html(this.template(this.model.toJSON()));    
             return this;
         }
     });
