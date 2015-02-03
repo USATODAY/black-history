@@ -40,6 +40,18 @@ __p += '<h2 class="iapp-intro-header">' +
 return __p
 };
 
+this["templates"]["name.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <h3 class="iapp-name-info">Let\'s have a conversation</h3>\n    <h3 class="iapp-name-info">First, what\'s your name?</h3>\n    <input type="text" class="iapp-name-input">\n    <div class="name-next-button button">Next</div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <h3 class="iapp-name-info">Thank you, ' +
+((__t = (userName)) == null ? '' : __t) +
+'. We\'re getting someone for you.</h3>\n    \n</div>';
+
+}
+return __p
+};
+
 this["templates"]["tag.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;

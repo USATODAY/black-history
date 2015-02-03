@@ -41,7 +41,8 @@ define(
             //remove duplacate tags from array
             tags = _.uniq(tags);
             this.data.tags = tags;
-        }
+        },
+        userName: ''
     }
 
 

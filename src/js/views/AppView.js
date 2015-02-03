@@ -8,24 +8,28 @@ define(
     'views/IntroView',
     'views/TagsView',
     'collections/TagCollection',
+    'views/NameView',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, templates){
+  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
                 this.listenTo(Backbone, "app:advance", this.goForward);
                 this.listenTo(Backbone, "app:goBack", this.goBack);
+                this.listenTo(Backbone, "name:set", this.onNameSet)
             },
             events: {
                 'click .intro-next-button': 'onNextClick'
             },
             onDataReady: function() {
-                console.log(dataManager.data);
                 this.render();
             },
             onNextClick: function() {
                 Backbone.trigger("app:advance");
+            },
+            onNameSet: function(name) {
+                dataManager.userName = name;
             },
             render: function() {
                this.$el.html(this.template({}));
@@ -54,6 +58,10 @@ define(
                var tagsView = new TagsView({collection: new TagCollection(dataManager.data.tags)});
                this.$el.append(tagsView.render().el);
                this.subViews.push(tagsView);
+
+               var nameView = new NameView();
+               this.$el.append(nameView.render().el);
+               this.subViews.push(nameView);
 
             },
             currentSubView: 0,
