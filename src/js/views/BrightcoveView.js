@@ -16,15 +16,20 @@ define(
             template: templates['brightcove.html'],
             className: 'iapp-brightcove-wrap',
             render: function() {
+
+              
               //currently hard coding video_id until i get video collections/models up and running
-              this.$el.html(this.template({video_id: "4018865801001"}));
+              this.$el.html(this.template({video_id: "4027676240001"}));
+              this.reformatVideos();
               return this;
             },
             activate: function() {
+              console.log("activate");
               brightcove.createExperiences();
               this.reformatVideos();
             },
             reformatVideos: function() {
+                console.log("reformat Videos");
                 var numWindowWidth = window.innerWidth;
                 if (window.innerWidth / window.innerHeight < 1920 / 1080) {
                   var numWidth = 100 * ((1920 / 1080) / (window.innerWidth / window.innerHeight));
@@ -39,8 +44,15 @@ define(
             
             },
             onVideoReady: function(bcObj) {
+              console.log(this);
+              
+              console.log("video ready");
               this.bcPlayer = bcObj.player;
               this.bcExperience = bcObj.experience;
+              console.log(this.bcPlayer);
+              // this.setVideo "4027676240001");
+              // this.reformatVideos();
+              // $(window).trigger("resize");
             },
 
             pauseVideo: function() {
@@ -52,6 +64,7 @@ define(
             },
 
             setVideo: function(bcId) {
+              console.log(this.bcPlayer);
               this.bcPlayer.loadVideoByID(bcId);
             },
 
@@ -59,7 +72,7 @@ define(
               console.log(bcObj.experience);
               // bcObj.experience.unload();
               console.log("remove");
-              this.remove();
+              // this.remove();
             } 
         });
 });

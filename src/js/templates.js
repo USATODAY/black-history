@@ -20,7 +20,54 @@ __p += '<!-- Start of Brightcove Player -->\n\n<div style="display:none">\nInter
 ((__t = (video_id)) == null ? '' : __t) +
 '" class="BrightcoveExperience">\n  <param name="bgcolor" value="#FFFFFF" />\n  <param name="width" value="640" />\n  <param name="height" value="390" />\n  <param name="playerID" value="1797379879001" />\n  <param name="playerKey" value="AQ~~,AAAABvaL8JE~,ufBHq_I6FnzwGj3ZkG57q5Cei-R6yZca" />\n  <param name="isSlim" value="true" />\n  <param name="dynamicStreaming" value="true" />\n  <param name="includeAPI" value="true" />\n    \n  <param name="@videoPlayer" value="' +
 ((__t = (video_id)) == null ? '' : __t) +
-'" />\n  <param name="templateReadyHandler" value="onTemplateReady" />\n</object>\n\n  <!-- <script>\n  var onTemplateLoad = function(experienceID) {\n          console.log(experienceID);\n          //console.log("onTemplateLoad");\n          // get a reference to the first player and API Modules\n          player = brightcove.api.getExperience(experienceID);\n          APIModules = brightcove.api.modules.APIModules;\n        };\n          \n        var onTemplateReady = function(evt) {\n          //console.log("onTemplateReady");\n          // get references to modules for the first player\n          videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);\n          // add a listener for when the video finishes playing\n          videoPlayer.addEventListener( brightcove.api.events.MediaEvent.COMPLETE, onComplete);\n          // get the URL link from the video meta data\n          videoPlayer.getCurrentVideo( function (videoDTO) {\n            redirectURL = videoDTO.linkURL;\n          });\n        };\n  </script> -->\n\n\n<!-- End of Brightcove Player -->';
+'" />\n  <param name="templateReadyHandler" value="onTemplateReady" />\n</object>\n\n\n<!-- End of Brightcove Player -->';
+
+}
+return __p
+};
+
+this["templates"]["intro.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<h2 class="iapp-intro-header">' +
+((__t = (head)) == null ? '' : __t) +
+'</h2>\n<p class="iapp-intro-chatter">' +
+((__t = (chatter)) == null ? '' : __t) +
+'</p>\n\n<div class="intro-next-button button">Next</div>';
+
+}
+return __p
+};
+
+this["templates"]["name.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <h3 class="iapp-name-info">Let\'s have a conversation</h3>\n    <h3 class="iapp-name-info">First, what\'s your name?</h3>\n    <input type="text" class="iapp-name-input">\n    <div class="name-next-button button">Next</div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <h3 class="iapp-name-info">Thank you, ' +
+((__t = (userName)) == null ? '' : __t) +
+'. We\'re getting someone for you.</h3>\n    \n</div>';
+
+}
+return __p
+};
+
+this["templates"]["tag.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p +=
+((__t = (tagName)) == null ? '' : __t);
+
+}
+return __p
+};
+
+this["templates"]["tags.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-tag-container">\n    \n</div>\n\n<div class="tags-next-button button">Next</div>';
 
 }
 return __p
@@ -33,6 +80,16 @@ with (obj) {
 __p += '<h3>' +
 ((__t = (test)) == null ? '' : __t) +
 '</h3>\n';
+
+}
+return __p
+};
+
+this["templates"]["video.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-video-info">\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis architecto totam expedita quas quae cupiditate fuga incidunt omnis harum, minus unde ipsam perspiciatis odio ducimus praesentium molestias dignissimos reiciendis dicta.</p>\n    <div class="video-next-button button">Next</div>\n</div>\n';
 
 }
 return __p

@@ -1,6 +1,57 @@
-.iapp-wrap {
-    // margin: 50px auto;
-    min-height: 100%;
-    position: relative;
-    // width: 50%;
+@mixin panel(){
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: transform 250ms ease;
+  width: 100%;
 }
+
+/******
+
+default page style overrides
+
+******/
+
+html, body, .transition-wrap,  article.padded-container, .non-article-content { height: 100% !important; }
+
+footer { display: none !important;}
+
+article {
+  height: 100% !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+div.non-article-content{
+  padding: 0;
+}
+
+.iapp-wrap {
+    @include panel();
+}
+
+
+.iapp-panel {
+    @include panel();
+}
+/******
+
+panel positions
+
+******/
+
+.done {
+  transform: translate(0, -100%);
+}
+
+.upcoming {
+  transform: translate(0, 100%);
+}
+
+.active {
+  transform: translate(0, 0);
+}
+
+
