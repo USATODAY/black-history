@@ -18,6 +18,7 @@ define(
         render: function(data) {
             var _this = this;
             this.$el.html(this.template());
+            
             this.collection.each(function(tagModel) {
                  var tagView = new TagView({model: tagModel})
                  _this.$('.iapp-tag-container').append(tagView.render().el);

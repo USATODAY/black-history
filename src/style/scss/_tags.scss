@@ -3,12 +3,22 @@
 }
 
 .iapp-tag-item {
-    background-color: $blue;
-    color: white;
+    border: solid 1px $blue;
+    color: $blue; 
+    cursor: pointer;
     display: inline-block;
     float: left;
     margin-right: 5px;
     margin-bottom: 5px;
     padding: 5px;
+
+    &.active {
+        background-color: $blue;
+        color: white;
+    }
+
+    &.unavailable {
+        display: none;
+    }
 }
 

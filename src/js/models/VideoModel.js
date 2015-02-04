@@ -11,6 +11,7 @@ define(
             'brightcoveID': '',
             'interviewee': '',
             'isActive': false,
+            'isAvailable': true,
             'videoDescription': '',
             'tags': [],
             'shareLanguage': '',

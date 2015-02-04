@@ -9,9 +9,11 @@ define(
     'views/TagsView',
     'collections/TagCollection',
     'views/NameView',
+    'views/VideoView',
+    'collections/VideoCollection',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, templates){
+  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, VideoCollection, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
@@ -45,7 +47,7 @@ define(
 
 
                 _.delay(function() {
-                  // brightcoveView.setVideo("4027676240001");
+                  brightcoveView.setVideo("4027676240001");
                 }, 2000);
             },
             subViews: [],
@@ -63,6 +65,10 @@ define(
                this.$el.append(nameView.render().el);
                this.subViews.push(nameView);
 
+               var videoView = new VideoView({collection: new VideoCollection(dataManager.data.videos)});
+               this.$el.append(videoView.render().el);
+               this.subViews.push(videoView);
+
             },
             currentSubView: 0,
             goForward: function() {
@@ -70,6 +76,10 @@ define(
                 var oldSub = this.subViews[this.currentSubView];
                 this.currentSubView++;
                 var newSub = this.subViews[this.currentSubView];
+
+                if (this.currentSubView == 3) {
+                    Backbone.trigger("render:video");
+                }
 
                 oldSub.$el.removeClass('active').addClass('done');
                 newSub.$el.removeClass('upcoming').addClass('active');
