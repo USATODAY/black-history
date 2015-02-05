@@ -19,14 +19,14 @@ define(
 
               
               //currently hard coding video_id until i get video collections/models up and running
-              this.$el.html(this.template({video_id: "4027676240001"}));
-              this.reformatVideos();
+              this.$el.html(this.template(this.model.toJSON()));
+              // this.reformatVideos();
               return this;
             },
             activate: function() {
               console.log("activate");
               brightcove.createExperiences();
-              this.reformatVideos();
+              // this.reformatVideos();
             },
             reformatVideos: function() {
                 console.log("reformat Videos");
@@ -36,11 +36,28 @@ define(
 
                   this.$el.css({"top": "0%", "left" : ((100 - numWidth) / 2).toString() + "%", "width": numWidth.toString() + "%", "height": "100%"});
 
+                  if (this.bcExperience.experience.type == "html") {
+                    console.log("num width: " + numWidth);
+                    //convert percent to pixels
+                    var fullWidth = numWidth/100 * window.innerWidth;
+                    var fullHeight = window.innerHeight;
+                    this.bcExperience.setSize(fullWidth, fullHeight)
+                  }
+
                 } else {
                   var numHeight = 100 * ((1080/ 1920) / (window.innerHeight/window.innerWidth));
                   this.$el.css({"left" : "0%"});
                   this.$el.css({"top" : ((100 - numHeight) / 2).toString() + "%", "height": numHeight.toString() + "%", "width": "100%"});
+
+                   if (this.bcExperience.experience.type == "html") {
+                    //convert percent to pixels
+                    var fullHeight = numHeight/100 * window.innerHeight;
+                    var fullWidth = window.innerWidth;
+                    this.bcExperience.setSize(fullWidth, numHeight)
+                  }
                 }
+
+
             
             },
             onVideoReady: function(bcObj) {
@@ -51,7 +68,7 @@ define(
               this.bcExperience = bcObj.experience;
               console.log(this.bcPlayer);
               // this.setVideo "4027676240001");
-              // this.reformatVideos();
+              this.reformatVideos();
               // $(window).trigger("resize");
             },
 

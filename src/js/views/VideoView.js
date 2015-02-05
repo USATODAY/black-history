@@ -11,6 +11,7 @@ define(
            this.listenTo(Backbone, "render:video", this.renderVideo); 
            this.listenTo(Backbone, "video:ready", this.onVideoReady);
            // this.collection.getAvailableTags();
+           console.log(this.collection);
         },
         events: {
             "click .video-next-button": "onNextClick"
@@ -19,6 +20,7 @@ define(
         template: templates['video.html'],
         render: function() {
             // console.log(this.collection);
+            // this.selectedVideoModel = this.collection.pickVideo()
             this.$el.html(this.template());
 
 
@@ -28,9 +30,10 @@ define(
         },
         renderVideo: function() {
             //get random video based on sellected tags from the collection
-            var selectedVideo = this.collection.pickVideo()
+            var selectedVideoModel = this.collection.pickVideo()
 
-            this.brightcoveView = new BrightcoveView();
+
+            this.brightcoveView = new BrightcoveView({model: selectedVideoModel});
             this.$el.append(this.brightcoveView.render().el);
             this.brightcoveView.activate();
 

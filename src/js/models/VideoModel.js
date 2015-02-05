@@ -8,14 +8,14 @@ define(
 
     return Backbone.Model.extend( {
         defaults: {
-            'brightcoveID': '',
+            'brightcoveid': '',
             'interviewee': '',
             'isActive': false,
             'isAvailable': true,
-            'videoDescription': '',
+            'videodescription': '',
             'tags': [],
-            'shareLanguage': '',
-            'stillImage': ''
+            'sharelanguage': '',
+            'stillimage': ''
         },
 
         initialize: function() {

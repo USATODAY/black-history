@@ -17,9 +17,9 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<!-- Start of Brightcove Player -->\n\n<div style="display:none">\nInteractives video player with single clip \n</div>\n\n<!--\nBy use of this code snippet, I agree to the Brightcove Publisher T and C \nfound at https://accounts.brightcove.com/en/terms-and-conditions/. \n-->\n\n\n\n<object id="myExperience' +
-((__t = (video_id)) == null ? '' : __t) +
+((__t = (brightcoveid)) == null ? '' : __t) +
 '" class="BrightcoveExperience">\n  <param name="bgcolor" value="#FFFFFF" />\n  <param name="width" value="640" />\n  <param name="height" value="390" />\n  <param name="playerID" value="1797379879001" />\n  <param name="playerKey" value="AQ~~,AAAABvaL8JE~,ufBHq_I6FnzwGj3ZkG57q5Cei-R6yZca" />\n  <param name="isSlim" value="true" />\n  <param name="dynamicStreaming" value="true" />\n  <param name="includeAPI" value="true" />\n    \n  <param name="@videoPlayer" value="' +
-((__t = (video_id)) == null ? '' : __t) +
+((__t = (brightcoveid)) == null ? '' : __t) +
 '" />\n  <param name="templateReadyHandler" value="onTemplateReady" />\n</object>\n\n\n<!-- End of Brightcove Player -->';
 
 }
@@ -30,11 +30,11 @@ this["templates"]["intro.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-intro-content-wrap iapp-content-wrap">\n    <h2 class="iapp-intro-header">' +
+__p += '<div class="iapp-intro-content-wrap iapp-content-wrap">\n    <div class="iapp-content-card">\n        <h2 class="iapp-intro-header">' +
 ((__t = (head)) == null ? '' : __t) +
-'</h2>\n    <p class="iapp-intro-chatter">' +
+'</h2>\n        <p class="iapp-intro-chatter">' +
 ((__t = (chatter)) == null ? '' : __t) +
-'</p>\n    \n    <div class="intro-next-button button">Next</div>\n</div>';
+'</p>\n        \n        <div class="intro-next-button button">Next</div>\n    </div>\n</div>';
 
 }
 return __p

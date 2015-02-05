@@ -19,7 +19,7 @@ html, body, .transition-wrap,  article.padded-container, .non-article-content { 
 footer { display: none !important;}
 
 article {
-  background-color: rgb(0, 0, 0);
+  background-color: $dark-grey;
   color: white;
   height: 100% !important;
   padding: 0 !important;
@@ -66,6 +66,13 @@ panel positions
 
 .iapp-section-header {
   text-align: center;
+}
+
+.iapp-content-card {
+  // background-color: $light-grey;
+  // box-shadow: $shadow-standard;
+  // color: $dark-grey;
+  // padding: 2em;
 }
 
 
