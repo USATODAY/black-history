@@ -35,13 +35,16 @@ define(
                   var numWidth = 100 * ((1920 / 1080) / (window.innerWidth / window.innerHeight));
 
                   this.$el.css({"top": "0%", "left" : ((100 - numWidth) / 2).toString() + "%", "width": numWidth.toString() + "%", "height": "100%"});
+                  if(this.bcExperience !== undefined) {
 
-                  if (this.bcExperience.experience.type == "html") {
-                    console.log("num width: " + numWidth);
-                    //convert percent to pixels
-                    var fullWidth = numWidth/100 * window.innerWidth;
-                    var fullHeight = window.innerHeight;
-                    this.bcExperience.setSize(fullWidth, fullHeight)
+                    if (this.bcExperience.experience.type == "html") {
+                      console.log("num width: " + numWidth);
+                      //convert percent to pixels
+                      var fullWidth = numWidth/100 * window.innerWidth;
+                      var fullHeight = window.innerHeight;
+                      this.bcExperience.setSize(fullWidth, fullHeight)
+                    }
+
                   }
 
                 } else {
@@ -49,11 +52,17 @@ define(
                   this.$el.css({"left" : "0%"});
                   this.$el.css({"top" : ((100 - numHeight) / 2).toString() + "%", "height": numHeight.toString() + "%", "width": "100%"});
 
-                   if (this.bcExperience.experience.type == "html") {
-                    //convert percent to pixels
-                    var fullHeight = numHeight/100 * window.innerHeight;
-                    var fullWidth = window.innerWidth;
-                    this.bcExperience.setSize(fullWidth, numHeight)
+                   if(this.bcExperience !== undefined) {
+
+                     if (this.bcExperience.experience.type == "html") {
+                      //convert percent to pixels
+                      var fullHeight = numHeight/100 * window.innerHeight;
+                      var fullWidth = window.innerWidth;
+
+                   
+                      this.bcExperience.setSize(fullWidth, numHeight);
+                    }
+                    
                   }
                 }
 
@@ -65,6 +74,8 @@ define(
               
               console.log("video ready");
               this.bcPlayer = bcObj.player;
+
+              this.pauseVideo();
               this.bcExperience = bcObj.experience;
               console.log(this.bcPlayer);
               // this.setVideo "4027676240001");

@@ -34,7 +34,7 @@ define(
                 dataManager.userName = name;
             },
             render: function() {
-               this.$el.html(this.template({}));
+               this.$el.append(this.template({}));
                // this.addVideo();
                this.addSubViews();
                return this;
