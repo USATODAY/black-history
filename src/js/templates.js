@@ -6,7 +6,7 @@ this["templates"]["app.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<!-- <h1>Hello World</h1> -->\n';
+__p += '<div class="iapp-header">\n    <img class=\'iapp-usat-logo-image\' src="http://www.gannett-cdn.com/experiments/usatoday/_common/_images/USAT_Logo_white.svg" alt="USA TODAY">\n    <div class="iapp-project-title">Black History Month</div>\n</div>\n';
 
 }
 return __p
@@ -34,7 +34,7 @@ __p += '<div class="iapp-intro-content-wrap iapp-content-wrap">\n    <div class=
 ((__t = (head)) == null ? '' : __t) +
 '</h2>\n        <p class="iapp-intro-chatter">' +
 ((__t = (chatter)) == null ? '' : __t) +
-'</p>\n        \n        <div class="intro-next-button button">Next</div>\n    </div>\n</div>';
+'</p>\n        \n        <div class="intro-next-button button">Next</div>\n    </div>\n\n    \n</div>\n\n<!-- <div class="sprite-test-wrap">\n        <div class="sprite-test"></div>\n    </div> -->';
 
 }
 return __p
