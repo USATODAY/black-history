@@ -30,11 +30,11 @@ this["templates"]["intro.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h2 class="iapp-intro-header">' +
+__p += '<div class="iapp-intro-content-wrap iapp-content-wrap">\n    <h2 class="iapp-intro-header">' +
 ((__t = (head)) == null ? '' : __t) +
-'</h2>\n<p class="iapp-intro-chatter">' +
+'</h2>\n    <p class="iapp-intro-chatter">' +
 ((__t = (chatter)) == null ? '' : __t) +
-'</p>\n\n<div class="intro-next-button button">Next</div>';
+'</p>\n    \n    <div class="intro-next-button button">Next</div>\n</div>';
 
 }
 return __p
@@ -44,9 +44,9 @@ this["templates"]["name.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <h3 class="iapp-name-info">Let\'s have a conversation</h3>\n    <h3 class="iapp-name-info">First, what\'s your name?</h3>\n    <input type="text" class="iapp-name-input">\n    <div class="name-next-button button">Next</div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <h3 class="iapp-name-info">Thank you, ' +
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Let\'s have a conversation</h3>\n        <h3 class="iapp-name-info">First, what\'s your name?</h3>\n        <input type="text" class="iapp-name-input">\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Thank you, ' +
 ((__t = (userName)) == null ? '' : __t) +
-'. We\'re getting someone for you.</h3>\n    \n</div>';
+'. We\'re getting someone for you.</h3>\n    </div>\n</div>';
 
 }
 return __p
@@ -67,7 +67,7 @@ this["templates"]["tags.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-tag-container">\n    \n</div>\n\n<div class="tags-next-button button">Next</div>';
+__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header">What would you like to discuss?</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button">Next</div>\n\n</div>';
 
 }
 return __p

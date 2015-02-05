@@ -10,7 +10,8 @@ define(
            this.listenTo(Backbone, 'name:set', this.onUserSet); 
         },
         events: {
-            "click .name-next-button": "onNextClick"
+            "click .name-next-button": "onNextClick",
+            'keyup .iapp-name-input': "onKeyPress"
         },
         className: 'iapp-panel upcoming',
         template: templates['name.html'],
@@ -19,9 +20,12 @@ define(
             return this;
         },
         onNextClick: function() {
-            this.userName = this.$('.iapp-name-input').val();
-            Backbone.trigger("name:set", this.userName);
-            // Backbone.trigger("app:advance");
+            this.goToNext();
+        },
+        onKeyPress: function(e) {
+            if(e.keyCode == 13) {
+                this.goToNext();
+            }
         },
         userName: '',
         onUserSet: function() {
@@ -34,6 +38,10 @@ define(
             _.delay(function() {
                 Backbone.trigger("app:advance");
             }, this.addDelay);
+        },
+        goToNext: function() {
+            this.userName = this.$('.iapp-name-input').val();
+            Backbone.trigger("name:set", this.userName);
         },
         addDelay: 2000
     });

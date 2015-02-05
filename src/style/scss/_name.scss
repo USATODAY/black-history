@@ -1,0 +1,22 @@
+.iapp-name-input {
+   background: none;
+   border: solid 1px white;
+   box-shadow: none;
+   color: white;
+   font-family: "Futura Today DemiBold", Arial,sans-serif;
+   font-size: 1.2em;
+   margin-bottom: 2em;
+   padding: .5em;
+   text-align: center;
+   transition: all 250ms ease;
+   -webkit-appearance: none; 
+
+   &:focus {
+        border: solid 1px $blue;
+        outline: none;
+   }
+}
+
+.iapp-name-input-panel, .iapp-name-info {
+    text-align: center;
+}

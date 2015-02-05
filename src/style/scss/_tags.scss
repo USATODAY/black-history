@@ -3,22 +3,30 @@
 }
 
 .iapp-tag-item {
-    border: solid 1px $blue;
-    color: $blue; 
+    // animation: fadeOut 250ms linear backwards;
+    border: solid 1px white;
+    color: white; 
     cursor: pointer;
     display: inline-block;
     float: left;
     margin-right: 5px;
     margin-bottom: 5px;
     padding: 5px;
+    transition: all 200ms ease;
+    &:hover {
+        background-color: white;
+        color: $blue;
+    }
 
     &.active {
         background-color: $blue;
+        border: solid 1px $blue;
         color: white;
     }
 
     &.unavailable {
         display: none;
+        animation: fadeOut 250ms linear forwards;
     }
 }
 
