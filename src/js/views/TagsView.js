@@ -44,6 +44,19 @@ define(
         },
         filter: function() {
             this.$('.iapp-tag-container').isotope({filter: ':not(.unavailable)'});
+            if (this.collection.where({'isActive': true}).length > 0) {
+                this.showNext(true);
+            } else {
+                this.showNext(false);
+            }
+        },
+        showNext: function(blnShow) {
+            if(blnShow == true) {
+               $('.tags-next-button').removeClass('hide'); 
+            } else {
+                $('.tags-next-button').addClass('hide');
+            }
+            
         }
     });
 

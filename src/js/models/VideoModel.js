@@ -22,6 +22,12 @@ define(
             if (typeof this.attributes.tags == "string"){ 
                 this.attributes.tags = this.attributes.tags.split(', ');
             }
+
+            this.listenTo(Backbone, 'name:set', this.onUserSet);
+        },
+
+        onUserSet: function(name) {
+            this.set({'userName': name})
         }
     });
 

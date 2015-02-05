@@ -8,6 +8,7 @@ define(
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(Backbone, 'name:set', this.onUserSet); 
+
         },
         events: {
             "click .name-next-button": "onNextClick",
@@ -35,8 +36,11 @@ define(
                 this.$('.iapp-name-input-panel').removeClass('active').addClass('done');
                 this.$('.iapp-name-thankyou-panel').removeClass('upcoming').addClass('active');
             }, this);
+
+
             _.delay(function() {
                 Backbone.trigger("app:advance");
+                // Backbone.trigger("get:video");
             }, this.addDelay);
         },
         goToNext: function() {

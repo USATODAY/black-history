@@ -10,6 +10,8 @@ define(
         initialize: function() {
            this.listenTo(Backbone, "render:video", this.renderVideo); 
            this.listenTo(Backbone, "video:ready", this.onVideoReady);
+           this.listenTo(Backbone, "get:video", this.onGetVideo);
+           this.listenTo(Backbone, "update:video", this.updateView);
            // this.collection.getAvailableTags();
            console.log(this.collection);
         },
@@ -20,8 +22,9 @@ define(
         template: templates['video.html'],
         render: function() {
             // console.log(this.collection);
-            // this.selectedVideoModel = this.collection.pickVideo()
-            this.$el.html(this.template());
+            this.selectedVideoModel = this.collection.pickVideo()
+            this.$el.html(this.template(this.selectedVideoModel.toJSON()));
+            // this.renderVideo();
 
 
 
@@ -30,10 +33,10 @@ define(
         },
         renderVideo: function() {
             //get random video based on sellected tags from the collection
-            var selectedVideoModel = this.collection.pickVideo()
+            // var selectedVideoModel = this.collection.pickVideo()
+            console.log("render video");
 
-
-            this.brightcoveView = new BrightcoveView({model: selectedVideoModel});
+            this.brightcoveView = new BrightcoveView({model: this.selectedVideoModel});
             this.$el.append(this.brightcoveView.render().el);
             this.brightcoveView.activate();
 
@@ -54,6 +57,26 @@ define(
         },
         onVideoReady: function() {
 
+        },
+        updateView: function(newVideoModel) {
+            this.selectedVideoModel = newVideoModel;
+
+            var newData = newVideoModel.toJSON();
+
+
+
+            this.brightcoveView.setVideo(this.selectedVideoModel.get('brightcoveid'));
+
+            //add dom updating for other video info
+
+            this.$('.iapp-video-greeting').html(newData.userName + ', meet ' + newData.interviewee.split(" ")[0]);
+
+            this.$('.iapp-video-description').html(newData.videodescription);
+        },
+        onGetVideo: function() {
+            //get random video based on sellected tags from the collection
+            // this.selectedVideoModel = this.collection.pickVideo()
+            // this.renderVideo();
         }
     });
 

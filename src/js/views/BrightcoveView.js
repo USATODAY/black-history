@@ -12,6 +12,7 @@ define(
               this.listenTo(Backbone, "window:resize", this.reformatVideos);
               this.listenTo(Backbone, "video:ready", this.onVideoReady);
               this.listenTo(Backbone, "video:ended", this.onVideoEnded);
+
             },
             template: templates['brightcove.html'],
             className: 'iapp-brightcove-wrap',

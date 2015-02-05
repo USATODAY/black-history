@@ -67,7 +67,7 @@ this["templates"]["tags.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header">What would you like to discuss?</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button">Next</div>\n\n</div>';
+__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header">What would you like to discuss?</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button hide">Next</div>\n\n</div>';
 
 }
 return __p
@@ -87,9 +87,16 @@ return __p
 
 this["templates"]["video.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-video-info">\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis architecto totam expedita quas quae cupiditate fuga incidunt omnis harum, minus unde ipsam perspiciatis odio ducimus praesentium molestias dignissimos reiciendis dicta.</p>\n    <div class="video-next-button button">Next</div>\n</div>\n';
+__p += '<div class="iapp-video-info">\n    <h4 class=\'iapp-video-greeting\'>' +
+((__t = (userName)) == null ? '' : __t) +
+', meet ';
+ print(interviewee.split(" ")[0]);
+__p += '</h4>\n    <p class=\'iapp-video-description\'>' +
+((__t = (videodescription)) == null ? '' : __t) +
+'</p>\n    <div class="video-next-button button">Next</div>\n</div>\n';
 
 }
 return __p

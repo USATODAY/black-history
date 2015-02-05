@@ -19,7 +19,7 @@ define(
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
                 this.listenTo(Backbone, "app:advance", this.goForward);
                 this.listenTo(Backbone, "app:goBack", this.goBack);
-                this.listenTo(Backbone, "name:set", this.onNameSet)
+                this.listenTo(Backbone, "name:set", this.onNameSet);
             },
             events: {
                 'click .intro-next-button': 'onNextClick'
@@ -35,7 +35,6 @@ define(
             },
             render: function() {
                this.$el.append(this.template({}));
-               // this.addVideo();
                this.addSubViews();
                return this;
             },
@@ -66,9 +65,8 @@ define(
                this.subViews.push(nameView);
 
                var videoView = new VideoView({collection: new VideoCollection(dataManager.data.videos)});
-               this.$el.append(videoView.render().el);
+               
                this.subViews.push(videoView);
-
             },
             currentSubView: 0,
             goForward: function() {
@@ -78,7 +76,8 @@ define(
                 var newSub = this.subViews[this.currentSubView];
 
                 if (this.currentSubView == 3) {
-                    Backbone.trigger("render:video");
+                    this.$el.append(this.subViews[3].render().el);
+                    this.subViews[3].renderVideo();
                 }
 
                 oldSub.$el.removeClass('active').addClass('done');
