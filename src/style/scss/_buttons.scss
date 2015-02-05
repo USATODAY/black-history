@@ -2,14 +2,19 @@
   background-color: $blue;
   color: white;
   margin: 0 auto;
+  opacity: 1;
   padding: 1em;
   text-align: center;
   text-transform: uppercase;
-  transition: background-color .5s;
+  transition: all .5s;
   width: 120px;
   &:hover{
     cursor: pointer;
     background-color: $dark-blue;
     transition: background-color .5s;
+  }
+
+  &.hide {
+    opacity: 0;
   }
 }

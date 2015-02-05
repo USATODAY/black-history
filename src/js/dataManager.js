@@ -13,7 +13,18 @@ define(
             jQuery.getJSON(url, function(data) {        
                 _this.data = data[0];
                 _this.organizeTags();
+                
+                //temporary take out later
+                console.warn("temporary data parsing taking place. remove before production");
+
+                
+
+                _.each(_this.data.videos, function(videoObj) {
+                    videoObj.videodescription = videoObj.videodescriptionthisneedstobeapprovedbycopydesk;
+                });
+
                 Backbone.trigger("dataReady", this);
+
             });
         },
         organizeTags: function() {

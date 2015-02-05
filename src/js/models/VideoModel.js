@@ -8,20 +8,26 @@ define(
 
     return Backbone.Model.extend( {
         defaults: {
-            'brightcoveID': '',
+            'brightcoveid': '',
             'interviewee': '',
             'isActive': false,
             'isAvailable': true,
-            'videoDescription': '',
+            'videodescription': '',
             'tags': [],
-            'shareLanguage': '',
-            'stillImage': ''
+            'sharelanguage': '',
+            'stillimage': ''
         },
 
         initialize: function() {
             if (typeof this.attributes.tags == "string"){ 
                 this.attributes.tags = this.attributes.tags.split(', ');
             }
+
+            this.listenTo(Backbone, 'name:set', this.onUserSet);
+        },
+
+        onUserSet: function(name) {
+            this.set({'userName': name})
         }
     });
 

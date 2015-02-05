@@ -4,7 +4,7 @@
   overflow: hidden;
   position: absolute;
   top: 0;
-  transition: transform 250ms ease;
+  transition: transform 500ms ease;
   width: 100%;
 }
 
@@ -19,6 +19,8 @@ html, body, .transition-wrap,  article.padded-container, .non-article-content { 
 footer { display: none !important;}
 
 article {
+  background-color: $dark-grey;
+  color: white;
   height: 100% !important;
   padding: 0 !important;
   width: 100%;
@@ -55,3 +57,74 @@ panel positions
 }
 
 
+.iapp-content-wrap {
+  padding: 2em;
+  margin: 4em auto 0 auto;
+  max-width: 900px;
+
+}
+
+.iapp-section-header {
+  text-align: center;
+}
+
+.iapp-content-card {
+  // background-color: $light-grey;
+  // box-shadow: $shadow-standard;
+  // color: $dark-grey;
+  // padding: 2em;
+}
+.iapp-header {
+  left: 1em;
+  position: absolute;
+  top: 1em;
+  width: 200px;
+  z-index: 10;
+}
+
+.iapp-usat-logo-image {
+  height: auto;
+  width: 100%;
+}
+
+.iapp-project-title {
+  font-family: "Futura Today Light", Arial,sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+
+.sprite-test-wrap {
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.sprite-test {
+  animation-name: sprite-test;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(10);
+  width: 100%;
+  height: 100%;
+  background: url(../img/sprite-test.jpg) no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 0;
+  // background-position: 0 00%;
+}
+
+@keyframes sprite-test {
+  0% {
+    background-position: 0% 0%; 
+  }
+
+ 
+  
+  100% {
+    background-position: 0% 100%; 
+  }
+}
