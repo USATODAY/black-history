@@ -168,6 +168,7 @@ module.exports = function(grunt) {
             "jquery_ui_touch_punch": "lib/jquery.ui.touch-punch.min",
             "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
+            "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
             "d3": '../../bower_components/d3/d3',
             "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
               // "api/ads": "api/ads",
@@ -215,6 +216,7 @@ module.exports = function(grunt) {
           "paths": {
             "jquery": '../../bower_components/jquery/dist/jquery',
             "backbone": '../../bower_components/backbone/backbone',
+            "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
             "underscore": '../../bower_components/underscore/underscore',
             "jquery_ui": "lib/jquery-ui.min",
             "jquery_ui_touch_punch": "lib/jquery.ui.touch-punch.min",
