@@ -22,7 +22,8 @@ define(
                 this.listenTo(Backbone, "name:set", this.onNameSet);
             },
             events: {
-                'click .intro-next-button': 'onNextClick'
+                'click .intro-next-button': 'onNextClick',
+                'click .flip-container': 'onFlipClick'
             },
             onDataReady: function() {
                 this.render();
@@ -32,6 +33,11 @@ define(
             },
             onNameSet: function(name) {
                 dataManager.userName = name;
+            },
+           onFlipClick: function(e) {
+            console.log("clicked");
+              console.log(e.currentTarget);
+              $(e.currentTarget).find(".flip-item").toggleClass('flipped');
             },
             render: function() {
                this.$el.append(this.template({}));
