@@ -6,7 +6,7 @@ this["templates"]["app.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-header">\n    <img class=\'iapp-usat-logo-image\' src="http://www.gannett-cdn.com/experiments/usatoday/_common/_images/USAT_Logo_white.svg" alt="USA TODAY">\n    <div class="iapp-project-title">Black History Month</div>\n</div>\n';
+__p += '<div class="iapp-header">\n    \n        <img class=\'iapp-usat-logo-image\' src="http://www.gannett-cdn.com/experiments/usatoday/_common/_images/USAT_Logo_white.svg" alt="USA TODAY">\n        <div class="iapp-project-title">#blackhistorymonth</div>\n\n    </div>\n\n\n';
 
 }
 return __p
