@@ -30,7 +30,7 @@ this["templates"]["indextab.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-people-index iapp-flip-item"></div>';
+__p += '<div class="iapp-flip-item">\n    <div class="iapp-people-index iapp-flip-front"></div>\n    <div class="iapp-clip-index iapp-flip-back"><div class="iapp-index-back-close button">close</div><div>this is the back of the card</div></div>\n</div>';
 
 }
 return __p
@@ -66,13 +66,13 @@ this["templates"]["person.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<img src="' +
+__p += '    <img src="' +
 ((__t = (person_still)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (person_name)) == null ? '' : __t) +
-'" class="iapp-person-item-img">\n<p class="iapp-person-bio">' +
+'" class="iapp-person-item-img">\n    <p class="iapp-person-bio">' +
 ((__t = (person_bio)) == null ? '' : __t) +
-'</p>';
+'</p>\n\n';
 
 }
 return __p

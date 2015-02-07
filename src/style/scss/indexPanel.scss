@@ -2,9 +2,11 @@
     background-color: rgba(25, 25, 25, 0.5);
     box-shadow: $shadow-standard;
     left: auto;
-    overflow-y: scroll;
+    height: 100%;
+    overflow: hidden;
     right: 0;
     width: 400px;
+    max-width: 100%;
 }
 
 .iapp-person-item {
@@ -17,4 +19,13 @@
 
 .iapp-person-bio {
     padding: 1em;
+}
+
+.iapp-clip-index {
+    background-color: black;
+}
+
+.iapp-people-index {
+    height: 100%;
+    overflow-y: scroll;
 }
