@@ -1,16 +1,21 @@
 .button {
-  background-color: $blue;
+  // background-color: $blue;
+  border-radius: 50%;
+  border: solid 2px white;
   color: white;
+  font-size: 1em;
+  height: 5em;
   margin: 0 auto;
   opacity: 1;
-  padding: 1em;
+  padding: 1.75em 0;
   text-align: center;
   text-transform: uppercase;
   transition: all .5s;
-  width: 120px;
+  width: 5em;
   &:hover{
+    color: $dark-grey;
     cursor: pointer;
-    background-color: $dark-blue;
+    background-color: white;
     transition: background-color .5s;
   }
 

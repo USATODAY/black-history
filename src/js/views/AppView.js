@@ -10,10 +10,12 @@ define(
     'collections/TagCollection',
     'views/NameView',
     'views/VideoView',
+    'views/IndexView',
     'collections/VideoCollection',
+    'collections/PeopleCollection',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, VideoCollection, templates){
+  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
@@ -22,8 +24,8 @@ define(
                 this.listenTo(Backbone, "name:set", this.onNameSet);
             },
             events: {
-                'click .intro-next-button': 'onNextClick',
-                'click .flip-container': 'onFlipClick'
+                'click .intro-next-button': 'onNextClick'
+                // 'click .iapp-flip-container': 'onFlipClick'
             },
             onDataReady: function() {
                 this.render();
@@ -37,7 +39,7 @@ define(
            onFlipClick: function(e) {
             console.log("clicked");
               console.log(e.currentTarget);
-              $(e.currentTarget).find(".flip-item").toggleClass('flipped');
+              $(e.currentTarget).find(".iapp-flip-item").toggleClass('iapp-flipped');
             },
             render: function() {
                this.$el.append(this.template({}));
@@ -73,6 +75,11 @@ define(
                var videoView = new VideoView({collection: new VideoCollection(dataManager.data.videos)});
                
                this.subViews.push(videoView);
+
+               var peopleCollection = new PeopleCollection(dataManager.data.people);
+               var indexView = new IndexView({collection: peopleCollection});
+
+               this.subViews.push(indexView);
             },
             currentSubView: 0,
             goForward: function() {
@@ -84,6 +91,8 @@ define(
                 if (this.currentSubView == 3) {
                     this.$el.append(this.subViews[3].render().el);
                     this.subViews[3].renderVideo();
+
+                    this.$el.append(this.subViews[4].render().el);
                 }
 
                 oldSub.$el.removeClass('active').addClass('done');

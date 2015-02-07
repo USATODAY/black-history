@@ -26,6 +26,16 @@ __p += '<!-- Start of Brightcove Player -->\n\n<div style="display:none">\nInter
 return __p
 };
 
+this["templates"]["indextab.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-people-index iapp-flip-item"></div>';
+
+}
+return __p
+};
+
 this["templates"]["intro.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -44,9 +54,25 @@ this["templates"]["name.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Let\'s have a conversation</h3>\n        <h3 class="iapp-name-info">First, what\'s your name?</h3>\n        <input type="text" class="iapp-name-input">\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Thank you, ' +
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Let\'s have a conversation</h3>\n        <h3 class="iapp-name-info">First, what\'s your name?</h3>\n        <input type="text" class="iapp-name-input" placeholder="Your name here">\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Thank you, ' +
 ((__t = (userName)) == null ? '' : __t) +
 '. We\'re getting someone for you.</h3>\n    </div>\n</div>';
+
+}
+return __p
+};
+
+this["templates"]["person.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<img src="' +
+((__t = (person_still)) == null ? '' : __t) +
+'" alt="' +
+((__t = (person_name)) == null ? '' : __t) +
+'" class="iapp-person-item-img">\n<p class="iapp-person-bio">' +
+((__t = (person_bio)) == null ? '' : __t) +
+'</p>';
 
 }
 return __p
@@ -96,7 +122,7 @@ __p += '<div class="iapp-video-info">\n    <h4 class=\'iapp-video-greeting\'>' +
  print(interviewee.split(" ")[0]);
 __p += '</h4>\n    <p class=\'iapp-video-description\'>' +
 ((__t = (videodescription)) == null ? '' : __t) +
-'</p>\n    <div class="video-next-button button">Next</div>\n</div>\n';
+'</p>\n    <div class="iapp-video-more-button button">More</div>\n</div>\n';
 
 }
 return __p

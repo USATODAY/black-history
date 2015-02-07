@@ -16,7 +16,7 @@ define(
            console.log(this.collection);
         },
         events: {
-            "click .video-next-button": "onNextClick"
+            "click .iapp-video-more-button": "onMoreClick"
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
@@ -47,6 +47,7 @@ define(
 
             
         },
+        //this method can probably be removed
         onNextClick: function() {
             if (this.brightcoveView.bcPlayer) {
                 this.brightcoveView.pauseVideo();
@@ -54,6 +55,9 @@ define(
             
             
             // Backbone.trigger("app:advance");
+        },
+        onMoreClick: function() {
+            Backbone.trigger('index:show');
         },
         onVideoReady: function() {
 
