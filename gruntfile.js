@@ -328,17 +328,17 @@ module.exports = function(grunt) {
       },
       upload1: {
         files: {
-          '/17200/experiments/usatoday/2015/01/black-history/': 'js/main.js'
+          '/17200/experiments/usatoday/2015/02/black-history/': 'js/main.js'
         }
       },
       upload2: {
         files: {
-          '/17200/experiments/usatoday/2015/01/black-history/': 'style/project.css'
+          '/17200/experiments/usatoday/2015/02/black-history/': 'style/project.css'
         }
       },
       upload3: {
         files: {
-          '/17200/experiments/usatoday/2015/01/black-history/': 'data/*.json'
+          '/17200/experiments/usatoday/2015/02/black-history/': 'data/*.json'
         }
       }
     },
