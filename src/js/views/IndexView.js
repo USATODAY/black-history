@@ -11,6 +11,7 @@ define(
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, 'index:show', this.onIndexShow);
+                this.listenTo(Backbone, 'index:hide', this.onIndexHide);
                 this.listenTo(Backbone, 'person:selected', this.onPersonSelected);
                 this.videoCollection = this.options.videoCollection;
             },
@@ -42,7 +43,8 @@ define(
                     this.$('.iapp-clip-container').isotope({
                         itemSelector: '.iapp-clip-index-item',
                         transitionDuration: 0,
-                        layoutMode: 'fitRows'
+                        // containerStyle: null
+                        // layoutMode: 'fitRows'
 
                 });
             });
@@ -58,6 +60,9 @@ define(
             },
             onIndexHide: function() {
                 this.$el.removeClass('active').addClass('upcoming');
+
+                //not sure if we should flip this back over here or not discuss
+                this.$('.iapp-flip-item').removeClass('iapp-flipped');
             },
             onPersonSelected: function(personModel) {
                 this.$('.iapp-flip-item').addClass('iapp-flipped');

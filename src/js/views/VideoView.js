@@ -73,7 +73,7 @@ define(
 
             //add dom updating for other video info
 
-            this.$('.iapp-video-greeting').html(newData.userName + ', meet ' + newData.interviewee.split(" ")[0]);
+            this.$('.iapp-video-greeting').html(newData.userName + ' ' + newData.intro);
 
             this.$('.iapp-video-description').html(newData.videodescription);
         },

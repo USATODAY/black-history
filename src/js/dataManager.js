@@ -31,6 +31,12 @@ define(
 
                 _.each(_this.data.videos, function(videoObj) {
                     videoObj.videodescription = videoObj.videodescriptionthisneedstobeapprovedbycopydesk;
+
+                    videoObj.stillimage = _this.data.base_url + videoObj.stillimage;
+                });
+
+                _.each(_this.data.people, function(personObj) {
+                   personObj.person_still = _this.data.base_url + personObj.person_still;
                 });
 
                 Backbone.trigger("dataReady", this);
