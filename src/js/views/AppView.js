@@ -72,12 +72,14 @@ define(
                this.$el.append(nameView.render().el);
                this.subViews.push(nameView);
 
-               var videoView = new VideoView({collection: new VideoCollection(dataManager.data.videos)});
+               var videoCollection = new VideoCollection(dataManager.data.videos);
+
+               var videoView = new VideoView({collection: videoCollection});
                
                this.subViews.push(videoView);
 
                var peopleCollection = new PeopleCollection(dataManager.data.people);
-               var indexView = new IndexView({collection: peopleCollection});
+               var indexView = new IndexView({collection: peopleCollection, videoCollection: videoCollection});
 
                this.subViews.push(indexView);
             },

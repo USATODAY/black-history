@@ -26,11 +26,21 @@ __p += '<!-- Start of Brightcove Player -->\n\n<div style="display:none">\nInter
 return __p
 };
 
+this["templates"]["clip.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<h2>This is a clip</h2>';
+
+}
+return __p
+};
+
 this["templates"]["indextab.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-flip-item">\n    <div class="iapp-people-index iapp-flip-front"></div>\n    <div class="iapp-clip-index iapp-flip-back"><div class="iapp-index-back-close button">close</div><div>this is the back of the card</div></div>\n</div>';
+__p += '<div class="iapp-flip-item">\n    <div class="iapp-people-index iapp-flip-front"></div>\n    <div class="iapp-clip-index iapp-flip-back"><div class="iapp-index-back-close button">close</div><div class="iapp-clip-container"></div></div>\n</div>';
 
 }
 return __p
@@ -122,7 +132,7 @@ __p += '<div class="iapp-video-info">\n    <h4 class=\'iapp-video-greeting\'>' +
  print(interviewee.split(" ")[0]);
 __p += '</h4>\n    <p class=\'iapp-video-description\'>' +
 ((__t = (videodescription)) == null ? '' : __t) +
-'</p>\n    <div class="iapp-video-more-button button">More</div>\n</div>\n';
+'</p>\n    <div class="iapp-video-more-button button">More</div>\n    <div class="iapp-video-discuss-button button">Discuss</div>\n</div>\n';
 
 }
 return __p
