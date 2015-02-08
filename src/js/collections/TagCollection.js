@@ -2,10 +2,12 @@ define(
   [
     'jquery',
     'underscore',
-    'backbone'
-  ], function(jQuery, _, Backbone){
+    'backbone',
+    'models/TagModel'
+  ], function(jQuery, _, Backbone, TagModel){
 
     return Backbone.Collection.extend({
+        model: TagModel,
         initialize: function() {
             // this.activeTags = this.filter(function(model) {
             //     return model.get("isAvailable");

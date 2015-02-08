@@ -37,6 +37,7 @@ div.non-article-content{
 
 .iapp-panel {
     @include panel();
+    overflow-y: scroll;
 }
 /******
 
