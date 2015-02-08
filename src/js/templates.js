@@ -44,7 +44,7 @@ this["templates"]["indextab.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-flip-item">\n    <div class="iapp-people-index iapp-flip-front"></div>\n    <div class="iapp-clip-index iapp-flip-back"><div class="iapp-index-back-close button">close</div><div class="iapp-clip-container"></div></div>\n</div>';
+__p += '<div class="iapp-flip-item">\n    <div class="iapp-people-index iapp-flip-front"></div>\n    <div class="iapp-clip-index iapp-flip-back"><div class="iapp-index-back-close button">BACK</div><div class="iapp-clip-container"></div></div>\n</div>';
 
 }
 return __p
@@ -84,7 +84,9 @@ __p += '    <img src="' +
 ((__t = (person_still)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (person_name)) == null ? '' : __t) +
-'" class="iapp-person-item-img">\n    <p class="iapp-person-bio">' +
+'" class="iapp-person-item-img">\n    <h3 class="iapp-person-name">' +
+((__t = (person_name)) == null ? '' : __t) +
+'</h3>\n    <p class="iapp-person-bio">' +
 ((__t = (person_bio)) == null ? '' : __t) +
 '</p>\n\n';
 
@@ -127,16 +129,13 @@ return __p
 
 this["templates"]["video.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
+var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="iapp-video-info">\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (userName)) == null ? '' : __t) +
-', meet ';
- print(interviewee.split(" ")[0]);
-__p += '</h4>\n    <p class=\'iapp-video-description\'>' +
-((__t = (videodescription)) == null ? '' : __t) +
-'</p>\n    <div class="iapp-video-more-button button">More</div>\n    <div class="iapp-video-discuss-button button">Discuss</div>\n</div>\n';
+', ' +
+((__t = (intro)) == null ? '' : __t) +
+'</h4>\n    <div class="iapp-video-more-button button">More</div>\n    <div class="iapp-video-discuss-button button">Discuss</div>\n</div>\n';
 
 }
 return __p
