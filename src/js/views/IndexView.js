@@ -42,7 +42,8 @@ define(
                     this.$('.iapp-clip-container').isotope({
                         itemSelector: '.iapp-clip-index-item',
                         transitionDuration: 0,
-                        layoutMode: 'fitRows'
+                        // containerStyle: null
+                        // layoutMode: 'fitRows'
 
                 });
             });

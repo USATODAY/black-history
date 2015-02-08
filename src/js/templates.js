@@ -30,7 +30,11 @@ this["templates"]["clip.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h2>This is a clip</h2>';
+__p += '<img src="' +
+((__t = (stillimage)) == null ? '' : __t) +
+'" alt="' +
+((__t = (interviewee)) == null ? '' : __t) +
+'" class="iapp-index-clip-img">\n<div class="iapp-clip-quote-containter">\n    <h2>"This is a clip quote"</h2>\n</div>';
 
 }
 return __p
