@@ -4,13 +4,23 @@ define(
     'underscore',
     'backbone'
   ],
-  function(jQuery, _, Backbone){
+  function(jQuery, _, Backbone) {
+
+    var hostname = window.location.hostname;
+
+    var dataURL;
+
+    if (hostname == "localhost") {
+        dataURL = 'data/data.json';
+    } else {
+        dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/data/data.json";
+    }
 
     return {
         data: null,
-        getData: function(url) {
+        getData: function() {
             var _this = this;
-            jQuery.getJSON(url, function(data) {        
+            jQuery.getJSON(dataURL, function(data) {        
                 _this.data = data[0];
                 _this.organizeTags();
                 
