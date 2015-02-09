@@ -94,6 +94,36 @@ __p += '    <img src="' +
 return __p
 };
 
+this["templates"]["share.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n\n<h3 class="iapp-share-intro">Your turn, ' +
+((__t = (userName)) == null ? '' : __t) +
+'. Continue this conversation by sharing this video.</h3>\n\n<p class="iapp-share-preview">' +
+((__t = (sharelanguage)) == null ? '' : __t) +
+'</p>\n\n<div class="iapp-share-buttons">\n    <a href="https://twitter.com/intent/tweet?url=' +
+((__t = (twitterShare)) == null ? '' : __t) +
+'&text=' +
+((__t = (encodedShare)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/twitter.svg" alt="Twitter share"></a>\n    <a href=\'https://www.facebook.com/dialog/feed?display=popup&app_id=' +
+((__t = (fb_id)) == null ? '' : __t) +
+'&link=' +
+((__t = (fbShare)) == null ? '' : __t) +
+'&picture=' +
+((__t = (stillimage)) == null ? '' : __t) +
+'&name=&description=' +
+((__t = (encodedShare)) == null ? '' : __t) +
+'&redirect_uri=' +
+((__t = (fb_redirect)) == null ? '' : __t) +
+'\' class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/facebook.svg" alt="Facebook share"></a>\n    <a href="' +
+((__t = (email_link)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-email"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/email.svg" alt="Email share"></a>\n</div>';
+
+}
+return __p
+};
+
 this["templates"]["tag.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;

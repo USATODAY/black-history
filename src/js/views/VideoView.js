@@ -3,20 +3,24 @@ define(
     'jquery',
     'underscore',
     'backbone',
-    'views/BrightcoveView'
+    'views/BrightcoveView',
+    'views/ShareView',
+    'templates'
   ],
-  function(jQuery, _, Backbone, BrightcoveView) {
+  function(jQuery, _, Backbone, BrightcoveView, ShareView, templates) {
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(Backbone, "render:video", this.renderVideo); 
            this.listenTo(Backbone, "video:ready", this.onVideoReady);
            this.listenTo(Backbone, "get:video", this.onGetVideo);
            this.listenTo(Backbone, "update:video", this.updateView);
+           this.listenTo(Backbone, "share:close", this.onShareClose);
            // this.collection.getAvailableTags();
-           console.log(this.collection);
+           
         },
         events: {
-            "click .iapp-video-more-button": "onMoreClick"
+            'click .iapp-video-more-button': 'onMoreClick',
+            'click .iapp-video-discuss-button': 'onShareClick'
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
@@ -26,7 +30,7 @@ define(
             this.$el.html(this.template(this.selectedVideoModel.toJSON()));
             // this.renderVideo();
 
-
+            this.addShare();
 
             
             return this;
@@ -63,13 +67,18 @@ define(
 
         },
         updateView: function(newVideoModel) {
+
+
+
             this.selectedVideoModel = newVideoModel;
+
 
             var newData = newVideoModel.toJSON();
 
 
 
             this.brightcoveView.setVideo(this.selectedVideoModel.get('brightcoveid'));
+            this.addShare();
 
             //add dom updating for other video info
 
@@ -81,6 +90,33 @@ define(
             //get random video based on sellected tags from the collection
             // this.selectedVideoModel = this.collection.pickVideo()
             // this.renderVideo();
+        },
+        onShareClick: function() {
+            this.brightcoveView.$el.addClass('iapp-blur');
+            this.$('.iapp-video-info').addClass('iapp-blur');
+            $('.iapp-header').addClass('iapp-blur');
+            $('.iapp-index-panel').addClass('iapp-blur');
+
+            this.shareView.$el.addClass('active').removeClass('upcoming');
+            this.brightcoveView.pauseVideo();
+            // $('.iapp-wrap').addClass('iapp-blur');
+        },
+        addShare: function() {
+            if (this.shareView == undefined) {
+                this.shareView = new ShareView({model:  this.selectedVideoModel});
+                $('.iapp-wrap').append(this.shareView.render().el);
+            } else {
+                this.shareView.remove();
+                this.shareView = new ShareView({model:  this.selectedVideoModel});
+                $('.iapp-wrap').append(this.shareView.render().el);
+            }
+            
+        },
+        onShareClose: function() {
+            this.brightcoveView.$el.removeClass('iapp-blur');
+            this.$('.iapp-video-info').removeClass('iapp-blur');
+            $('.iapp-header').removeClass('iapp-blur');
+             $('.iapp-index-panel').removeClass('iapp-blur');
         }
     });
 
