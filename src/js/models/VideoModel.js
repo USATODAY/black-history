@@ -2,9 +2,10 @@ define(
   [
     'jquery',
     'underscore',
-    'backbone'
+    'backbone',
+    'models/config'
   ],
-  function(jQuery, _, Backbone){
+  function(jQuery, _, Backbone, config){
 
     return Backbone.Model.extend( {
         defaults: {
@@ -23,13 +24,16 @@ define(
                 this.attributes.tags = this.attributes.tags.split(', ');
             }
 
-            
+
             //set sharable language and urls for each model
             this.set({
                 'fbShare': this.createFbShareURL(this.get('video_clip')),
                 'twitterShare': this.createTwitterShareURL(this.get('video_clip')),
-                'encodedShare': encodeURIComponent(this.get('sharelanguage'))
+                'encodedShare': encodeURIComponent(this.get('sharelanguage')),
+                'fb_id': config.fb_app_id,
+                'fb_redirect': 'http://' + window.location.hostname + '/pages/interactives/fb-share/'
             });
+            console.log(this);
             
 
             this.listenTo(Backbone, 'name:set', this.onUserSet);
