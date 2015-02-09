@@ -47,7 +47,7 @@ define(
             this.userName = this.$('.iapp-name-input').val();
             Backbone.trigger("name:set", this.userName);
         },
-        addDelay: 2000
+        addDelay: 4000
     });
 
 
