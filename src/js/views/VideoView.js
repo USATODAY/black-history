@@ -3,9 +3,11 @@ define(
     'jquery',
     'underscore',
     'backbone',
-    'views/BrightcoveView'
+    'views/BrightcoveView',
+    'views/ShareView',
+    'templates'
   ],
-  function(jQuery, _, Backbone, BrightcoveView) {
+  function(jQuery, _, Backbone, BrightcoveView, ShareView, templates) {
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(Backbone, "render:video", this.renderVideo); 
@@ -16,7 +18,8 @@ define(
            console.log(this.collection);
         },
         events: {
-            "click .iapp-video-more-button": "onMoreClick"
+            'click .iapp-video-more-button': 'onMoreClick',
+            'click .iapp-video-discuss-button': 'onShareClick'
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
@@ -26,7 +29,7 @@ define(
             this.$el.html(this.template(this.selectedVideoModel.toJSON()));
             // this.renderVideo();
 
-
+            this.addShare();
 
             
             return this;
@@ -63,13 +66,18 @@ define(
 
         },
         updateView: function(newVideoModel) {
+
+
+
             this.selectedVideoModel = newVideoModel;
+
 
             var newData = newVideoModel.toJSON();
 
 
 
             this.brightcoveView.setVideo(this.selectedVideoModel.get('brightcoveid'));
+            this.addShare();
 
             //add dom updating for other video info
 
@@ -81,6 +89,20 @@ define(
             //get random video based on sellected tags from the collection
             // this.selectedVideoModel = this.collection.pickVideo()
             // this.renderVideo();
+        },
+        onShareClick: function() {
+            this.$('.iapp-share-panel').addClass('active').removeClass('upcoming');
+        },
+        addShare: function() {
+            if (this.shareView == undefined) {
+                this.shareView = new ShareView({model:  this.selectedVideoModel});
+                this.$el.append(this.shareView.render().el);
+            } else {
+                this.shareView.remove();
+                this.shareView = new ShareView({model:  this.selectedVideoModel});
+                this.$el.append(this.shareView.render().el);
+            }
+            
         }
     });
 

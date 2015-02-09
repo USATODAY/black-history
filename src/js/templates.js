@@ -94,6 +94,18 @@ __p += '    <img src="' +
 return __p
 };
 
+this["templates"]["share.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n<h3 class="iapp-share-intro">' +
+((__t = (sharelanguage)) == null ? '' : __t) +
+'</h3>\n<h1>SHARE PANEL</h1>';
+
+}
+return __p
+};
+
 this["templates"]["tag.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
