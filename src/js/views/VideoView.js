@@ -2,12 +2,14 @@ define(
   [
     'jquery',
     'underscore',
-    'backbone',
+    'lib/BackboneRouter',
     'views/BrightcoveView',
     'views/ShareView',
+    'router',
     'templates'
   ],
-  function(jQuery, _, Backbone, BrightcoveView, ShareView, templates) {
+  function(jQuery, _, Backbone, BrightcoveView, ShareView, router, templates) {
+
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(Backbone, "render:video", this.renderVideo); 
@@ -24,9 +26,14 @@ define(
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
-        render: function() {
+        render: function(videoModel) {
             // console.log(this.collection);
-            this.selectedVideoModel = this.collection.pickVideo()
+            if (videoModel != undefined) {
+                this.selectedVideoModel = videoModel;
+            } else {
+                this.selectedVideoModel = this.collection.pickVideo();
+            }
+            
             this.$el.html(this.template(this.selectedVideoModel.toJSON()));
             // this.renderVideo();
 
@@ -38,7 +45,8 @@ define(
         renderVideo: function() {
             //get random video based on sellected tags from the collection
             // var selectedVideoModel = this.collection.pickVideo()
-            console.log("render video");
+            
+            router.navigate('video/' + this.selectedVideoModel.get('video_clip'));
 
             this.brightcoveView = new BrightcoveView({model: this.selectedVideoModel});
             this.$el.append(this.brightcoveView.render().el);
@@ -71,6 +79,7 @@ define(
 
 
             this.selectedVideoModel = newVideoModel;
+            router.navigate('video/' + this.selectedVideoModel.get('video_clip'));
 
 
             var newData = newVideoModel.toJSON();
@@ -102,6 +111,7 @@ define(
             // $('.iapp-wrap').addClass('iapp-blur');
         },
         addShare: function() {
+
             if (this.shareView == undefined) {
                 this.shareView = new ShareView({model:  this.selectedVideoModel});
                 $('.iapp-wrap').append(this.shareView.render().el);

@@ -15,6 +15,7 @@ define(
             'isAvailable': true,
             'videodescription': '',
             'tags': [],
+            'userName': '',
             'sharelanguage': '',
             'stillimage': ''
         },
@@ -24,7 +25,7 @@ define(
                 this.attributes.tags = this.attributes.tags.split(', ');
             }
 
-
+        
             //set sharable language and urls for each model
             this.set({
                 'fbShare': this.createFbShareURL(),
@@ -34,7 +35,7 @@ define(
                 'fb_redirect': 'http://' + window.location.hostname + '/pages/interactives/fb-share/',
                 'email_link': this.createEmailLink()
             });
-            console.log(this);
+            
             
 
             this.listenTo(Backbone, 'name:set', this.onUserSet);
@@ -46,13 +47,13 @@ define(
 
         createFbShareURL: function() {
             var videoID = this.get('video_clip');
-            var baseURL = window.location.href;
+            var baseURL = window.location.origin + window.location.pathname;
             return encodeURI(baseURL + "%23video/" + videoID); 
         },
 
         createTwitterShareURL: function() {
             var videoID = this.get('video_clip');
-            var baseURL = window.location.href;
+            var baseURL = window.location.origin + window.location.pathname;
             return encodeURIComponent(baseURL + "#video/" + videoID); 
         },
 
