@@ -32,6 +32,8 @@ define(
                 _.each(_this.data.videos, function(videoObj) {
                     videoObj.videodescription = videoObj.videodescriptionthisneedstobeapprovedbycopydesk;
 
+                    videoObj.video_clip = videoObj.video_clip.toLowerCase();
+
                     videoObj.stillimage = _this.data.base_url + videoObj.stillimage;
                 });
 

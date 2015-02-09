@@ -2,7 +2,7 @@ define(
   [
     'jquery',
     'underscore',
-    'backbone',
+    'lib/BackboneRouter',
     'dataManager',
     'views/BrightcoveView',
     'views/IntroView',
@@ -13,22 +13,24 @@ define(
     'views/IndexView',
     'collections/VideoCollection',
     'collections/PeopleCollection',
+    'router',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, templates){
+  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, router, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
                 this.listenTo(Backbone, "app:advance", this.goForward);
                 this.listenTo(Backbone, "app:goBack", this.goBack);
                 this.listenTo(Backbone, "name:set", this.onNameSet);
+                this.listenTo(Backbone, "router:video", this.onVideoRoute);
             },
             events: {
                 'click .intro-next-button': 'onNextClick'
-                // 'click .iapp-flip-container': 'onFlipClick'
             },
             onDataReady: function() {
                 this.render();
+                Backbone.history.start();
             },
             onNextClick: function() {
                 Backbone.trigger("app:advance");
@@ -36,10 +38,11 @@ define(
             onNameSet: function(name) {
                 dataManager.userName = name;
             },
-           onFlipClick: function(e) {
-            console.log("clicked");
-              console.log(e.currentTarget);
-              $(e.currentTarget).find(".iapp-flip-item").toggleClass('iapp-flipped');
+            onVideoRoute: function(clip_name) {
+                
+
+                
+                this.goToVideo(this.videoCollection.findWhere({'video_clip': clip_name}));
             },
             render: function() {
                this.$el.append(this.template({}));
@@ -47,16 +50,6 @@ define(
                return this;
             },
             template: templates["app.html"],
-            addVideo: function() {
-                var brightcoveView = new BrightcoveView();
-                this.$el.append(brightcoveView.render().el);
-                brightcoveView.activate();
-
-
-                _.delay(function() {
-                  brightcoveView.setVideo("4027676240001");
-                }, 2000);
-            },
             subViews: [],
             addSubViews: function() {
                 // console.log(dataManager);
@@ -73,6 +66,7 @@ define(
                this.subViews.push(nameView);
 
                var videoCollection = new VideoCollection(dataManager.data.videos);
+               this.videoCollection = videoCollection;
 
                var videoView = new VideoView({collection: videoCollection});
                
@@ -85,7 +79,7 @@ define(
             },
             currentSubView: 0,
             goForward: function() {
-                console.log("go forward");
+                
                 var oldSub = this.subViews[this.currentSubView];
                 this.currentSubView++;
                 var newSub = this.subViews[this.currentSubView];
@@ -97,6 +91,17 @@ define(
                     this.$el.append(this.subViews[4].render().el);
                 }
 
+                oldSub.$el.removeClass('active').addClass('done');
+                newSub.$el.removeClass('upcoming').addClass('active');
+            },
+            goToVideo: function(videoModel) {
+                var oldSub = this.subViews[this.currentSubView];
+                this.currentSubView = 3;
+                var newSub = this.subViews[this.currentSubView];
+                this.$el.append(this.subViews[3].render(videoModel).el);
+                this.subViews[3].renderVideo();
+
+                this.$el.append(this.subViews[4].render().el);
                 oldSub.$el.removeClass('active').addClass('done');
                 newSub.$el.removeClass('upcoming').addClass('active');
             },

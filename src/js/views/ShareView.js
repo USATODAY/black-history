@@ -8,7 +8,7 @@ define(
     function(jQuery, _, Backbone, templates) {
         return Backbone.View.extend({
             render: function() {
-                console.log("share rendered");
+                
                 this.$el.html(this.template(this.model.toJSON()));
 
 
