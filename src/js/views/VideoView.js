@@ -14,8 +14,9 @@ define(
            this.listenTo(Backbone, "video:ready", this.onVideoReady);
            this.listenTo(Backbone, "get:video", this.onGetVideo);
            this.listenTo(Backbone, "update:video", this.updateView);
+           this.listenTo(Backbone, "share:close", this.onShareClose);
            // this.collection.getAvailableTags();
-           console.log(this.collection);
+           
         },
         events: {
             'click .iapp-video-more-button': 'onMoreClick',
@@ -91,18 +92,31 @@ define(
             // this.renderVideo();
         },
         onShareClick: function() {
-            this.$('.iapp-share-panel').addClass('active').removeClass('upcoming');
+            this.brightcoveView.$el.addClass('iapp-blur');
+            this.$('.iapp-video-info').addClass('iapp-blur');
+            $('.iapp-header').addClass('iapp-blur');
+            $('.iapp-index-panel').addClass('iapp-blur');
+
+            this.shareView.$el.addClass('active').removeClass('upcoming');
+            this.brightcoveView.pauseVideo();
+            // $('.iapp-wrap').addClass('iapp-blur');
         },
         addShare: function() {
             if (this.shareView == undefined) {
                 this.shareView = new ShareView({model:  this.selectedVideoModel});
-                this.$el.append(this.shareView.render().el);
+                $('.iapp-wrap').append(this.shareView.render().el);
             } else {
                 this.shareView.remove();
                 this.shareView = new ShareView({model:  this.selectedVideoModel});
-                this.$el.append(this.shareView.render().el);
+                $('.iapp-wrap').append(this.shareView.render().el);
             }
             
+        },
+        onShareClose: function() {
+            this.brightcoveView.$el.removeClass('iapp-blur');
+            this.$('.iapp-video-info').removeClass('iapp-blur');
+            $('.iapp-header').removeClass('iapp-blur');
+             $('.iapp-index-panel').removeClass('iapp-blur');
         }
     });
 

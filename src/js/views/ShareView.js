@@ -22,6 +22,7 @@ define(
             className: 'iapp-share-panel iapp-panel upcoming',
             onClickClose: function() {
                 this.$el.addClass('upcoming').removeClass('active');
+                Backbone.trigger('share:close');
             }
         });
 });

@@ -98,9 +98,15 @@ this["templates"]["share.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n<h3 class="iapp-share-intro">' +
+__p += '<div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n\n<h3 class="iapp-share-intro">Your turn, ' +
+((__t = (userName)) == null ? '' : __t) +
+'. Continue this conversation by sharing this video.</h3>\n\n<p class="iapp-share-preview">' +
 ((__t = (sharelanguage)) == null ? '' : __t) +
-'</h3>\n<h1>SHARE PANEL</h1>';
+'</p>\n\n<div class="iapp-share-buttons">\n    <a href="https://twitter.com/intent/tweet?url=' +
+((__t = (twitterShare)) == null ? '' : __t) +
+'&text=' +
+((__t = (encodedShare)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-twitter"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/twitter.svg" alt="Twitter share"></a>\n    <a href="" class="iapp-share-button iapp-share-facebook"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/facebook.svg" alt="Facebook share"></a>\n    <a href="" class="iapp-share-button iapp-share-email"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/email.svg" alt="Email share"></a>\n</div>';
 
 }
 return __p
