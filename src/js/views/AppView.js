@@ -31,6 +31,10 @@ define(
             onDataReady: function() {
                 this.render();
                 Backbone.history.start();
+                _.delay(function() {
+                    this.$('.iapp-preloader').fadeOut(250);
+                }, 1000);
+                
             },
             onNextClick: function() {
                 Backbone.trigger("app:advance");
