@@ -24,6 +24,8 @@ define(
                 this.listenTo(Backbone, "app:goBack", this.goBack);
                 this.listenTo(Backbone, "name:set", this.onNameSet);
                 this.listenTo(Backbone, "router:video", this.onVideoRoute);
+                this.logoURL = $('.site-nav-logo-img').attr('src');
+                
             },
             events: {
                 'click .intro-next-button': 'onNextClick'
@@ -49,7 +51,7 @@ define(
                 this.goToVideo(this.videoCollection.findWhere({'video_clip': clip_name}));
             },
             render: function() {
-               this.$el.append(this.template({}));
+               this.$el.append(this.template({logo: this.logoURL}));
                this.addSubViews();
                return this;
             },
