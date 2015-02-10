@@ -9,16 +9,14 @@ define(
     var hostname = window.location.hostname;
 
     var dataURL;
-    console.error("REMEMBER TO CHANGE DATA SOURCE");
 
     if (hostname == "localhost") {
         dataURL = 'data/data.json';
     } else {
 
 
-        // dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/data/data.json";
+        dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/data/data.json";
 
-        dataURL = 'data/data.json';
     }
 
     return {
