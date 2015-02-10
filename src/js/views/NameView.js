@@ -8,7 +8,7 @@ define(
   function(jQuery, _, Backbone, dataManager) {
     return Backbone.View.extend({
         initialize: function() {
-           this.listenTo(Backbone, 'name:set', this.onUserSet); 
+           // this.listenTo(Backbone, 'name:set', this.onUserSet); 
 
         },
         events: {
@@ -47,6 +47,7 @@ define(
         },
         goToNext: function() {
             this.userName = this.$('.iapp-name-input').val();
+            Backbone.trigger("app:advance");
             Backbone.trigger("name:set", this.userName);
         },
         getGreeting: function() {

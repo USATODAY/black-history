@@ -19,6 +19,7 @@ define(
            this.listenTo(Backbone, "get:video", this.onGetVideo);
            this.listenTo(Backbone, "update:video", this.updateView);
            this.listenTo(Backbone, "share:close", this.onShareClose);
+           this.listenTo(Backbone, "tags:set", this.onTagsSet);
            // this.collection.getAvailableTags();
            
         },
@@ -33,9 +34,7 @@ define(
             // console.log(this.collection);
             if (videoModel != undefined) {
                 this.selectedVideoModel = videoModel;
-            } else {
-                this.selectedVideoModel = this.collection.pickVideo();
-            }
+            } 
             
             this.$el.html(this.template(this.selectedVideoModel.toJSON()));
 
@@ -79,6 +78,10 @@ define(
         },
         onVideoReady: function() {
 
+        },
+        onTagsSet: function() {
+            this.selectedVideoModel = this.collection.pickVideo();
+            Backbone.trigger('video:set', this.selectedVideoModel);
         },
         updateView: function(newVideoModel) {
 
