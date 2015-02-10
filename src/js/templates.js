@@ -176,7 +176,7 @@ __p += '\n    <h2 class="iapp-share-intro iapp-panel-text-main">Your turn. Conti
 };
 __p += '\n    \n    <p class="iapp-share-preview">' +
 ((__t = (sharelanguage)) == null ? '' : __t) +
-'' +
+' #' +
 ((__t = (hashtags)) == null ? '' : __t) +
 '</p>\n    \n    <div class="iapp-share-buttons">\n        <a href="https://twitter.com/intent/tweet?url=' +
 ((__t = (twitterShare)) == null ? '' : __t) +
@@ -256,7 +256,7 @@ __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (intro)) == null ? '' : __t) +
 '</h4>\n    ';
 };
-__p += '\n    \n    <div class="iapp-video-info-buttons">\n        <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share & Discuss</div></div>\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">Watch More</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n    </div>\n</div>\n';
+__p += '\n    \n    <div class="iapp-video-info-buttons">\n    <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share</div></div>\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">Watch More</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n    </div>\n</div>\n';
 
 }
 return __p
