@@ -97,3 +97,11 @@
         padding: 1em;
     }
 }
+
+.iapp-video-back-button {
+    position: absolute;
+    right: 1em;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    top: 1em;
+    z-index: 12;
+}

@@ -51,7 +51,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-content-wrap">\n    <div class="iapp-credits-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n    <h2 class="iapp-section-header iapp-panel-text-main">About</h2>\n    <p class="iapp-section-text">' +
+__p += '<div class="iapp-credits-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header iapp-panel-text-main">About</h2>\n    <p class="iapp-section-text">' +
 ((__t = (credits_intro)) == null ? '' : __t) +
 '</p>\n    <h2 class="iapp-section-header iapp-panel-text-main">Credits</h2>\n    <h3 class="iapp-project-credits">\n        ';
  _.each(project_credits, function(creditObj) { ;
@@ -244,7 +244,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-video-info">\n     ';
+__p += '<div class="iapp-video-back-button button iapp-button-small"><div class="iapp-button-text">Back</div></div>\n\n<div class="iapp-video-info">\n     ';
  if (userName != "") { ;
 __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (userName)) == null ? '' : __t) +
