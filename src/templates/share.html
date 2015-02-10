@@ -1,6 +1,10 @@
 <div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>
 
+<% if (userName != "") { %>
 <h3 class="iapp-share-intro">Your turn, <%=userName%>. Continue this conversation by sharing this video.</h3>
+<%} else { %>
+<h3 class="iapp-share-intro">Your turn. Continue this conversation by sharing this video.</h3>
+<%}%>
 
 <p class="iapp-share-preview"><%=sharelanguage%></p>
 
