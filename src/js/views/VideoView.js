@@ -5,10 +5,12 @@ define(
     'lib/BackboneRouter',
     'views/BrightcoveView',
     'views/ShareView',
+    'views/CreditView',
+    'models/CreditsModel',
     'router',
     'templates'
   ],
-  function(jQuery, _, Backbone, BrightcoveView, ShareView, router, templates) {
+  function(jQuery, _, Backbone, BrightcoveView, ShareView, CreditsView, CreditsModel, router, templates) {
 
     return Backbone.View.extend({
         initialize: function() {
@@ -22,7 +24,8 @@ define(
         },
         events: {
             'click .iapp-video-more-button': 'onMoreClick',
-            'click .iapp-video-discuss-button': 'onShareClick'
+            'click .iapp-video-discuss-button': 'onShareClick',
+            'click .iapp-video-credits-button': 'onCreditsClick'
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
@@ -35,9 +38,9 @@ define(
             }
             
             this.$el.html(this.template(this.selectedVideoModel.toJSON()));
-            // this.renderVideo();
 
             this.addShare();
+            this.addCredits();
 
             
             return this;
@@ -71,6 +74,9 @@ define(
         onMoreClick: function() {
             Backbone.trigger('index:show');
         },
+        onCreditsClick: function() {
+            Backbone.trigger('credits:show');
+        },
         onVideoReady: function() {
 
         },
@@ -88,6 +94,7 @@ define(
 
             this.brightcoveView.setVideo(this.selectedVideoModel.get('brightcoveid'));
             this.addShare();
+
 
             //add dom updating for other video info
 
@@ -127,6 +134,10 @@ define(
             this.$('.iapp-video-info').removeClass('iapp-blur');
             $('.iapp-header').removeClass('iapp-blur');
              $('.iapp-index-panel').removeClass('iapp-blur');
+        },
+        addCredits: function() {
+            this.creditsView = new CreditsView({model: new CreditsModel()});
+            $('.iapp-wrap').append(this.creditsView.render().el);
         }
     });
 

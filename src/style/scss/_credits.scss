@@ -1,0 +1,13 @@
+.iapp-credits-panel {
+    background-color: rgba(50, 50, 50, 0.8);
+    filter: none;
+    padding: 2em;
+    z-index: 10;
+}
+
+.iapp-credits-close {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    width: 60px;
+}

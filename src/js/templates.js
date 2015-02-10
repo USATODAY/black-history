@@ -38,7 +38,21 @@ __p += '<img src="' +
 ((__t = (stillimage)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (interviewee)) == null ? '' : __t) +
-'" class="iapp-index-clip-img">\n<div class="iapp-clip-quote-containter">\n    <h2>"This is a clip quote"</h2>\n</div>';
+'" class="iapp-index-clip-img">\n<div class="iapp-clip-quote-containter">\n    <h2 class="iapp-clip-quote-text">' +
+((__t = (video_quotes)) == null ? '' : __t) +
+'</h2>\n</div>';
+
+}
+return __p
+};
+
+this["templates"]["credits.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-credits-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n<h3 class="iapp-section-header">Credits</h3>\n<h3 class="iapp-project-credits">' +
+((__t = (project_credits)) == null ? '' : __t) +
+'</h3>';
 
 }
 return __p
@@ -196,7 +210,7 @@ __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (intro)) == null ? '' : __t) +
 '</h4>\n    ';
 };
-__p += '\n    <div class="iapp-video-more-button button">More</div>\n    <div class="iapp-video-discuss-button button">Discuss</div>\n</div>\n';
+__p += '\n    <div class="iapp-video-more-button button iapp-large-button">Watch More</div>\n    <div class="iapp-video-discuss-button button">Share & Discuss</div>\n    <div class="iapp-video-credits-button button">About</div>\n</div>\n';
 
 }
 return __p
