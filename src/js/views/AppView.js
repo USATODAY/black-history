@@ -51,7 +51,7 @@ define(
                 this.goToVideo(this.videoCollection.findWhere({'video_clip': clip_name}));
             },
             render: function() {
-               this.$el.append(this.template({logo: this.logoURL}));
+               this.$el.append(this.template({logo: this.logoURL, title: dataManager.data.title}));
                this.addSubViews();
                return this;
             },

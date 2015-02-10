@@ -2,9 +2,10 @@ define(
   [
     'jquery',
     'underscore',
-    'backbone'
+    'backbone',
+    'dataManager'
   ],
-  function(jQuery, _, Backbone) {
+  function(jQuery, _, Backbone, dataManager) {
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(Backbone, 'name:set', this.onUserSet); 
@@ -17,7 +18,7 @@ define(
         className: 'iapp-panel upcoming',
         template: templates['name.html'],
         render: function() {
-            this.$el.html(this.template({userName: this.userName}));
+            this.$el.html(this.template({userName: this.userName, name_text: dataManager.data.name_text}));
             return this;
         },
         onNextClick: function() {
