@@ -73,6 +73,11 @@
     max-width: 28em;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
+
+    @media(max-width: 600px) {
+        font-size: 0.9em;
+        margin-top: 0;
+    }
 }
 
 .tablet .iapp-video-play-button.button {
