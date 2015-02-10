@@ -32,7 +32,8 @@ module.exports = function(grunt) {
           sourcemap: 'none'
         },
         files: {
-          '<%=config.tmp%>project.css': '<%=config.src%>style/scss/project.scss'
+          '<%=config.tmp%>project.css': '<%=config.src%>style/scss/project.scss',
+          '<%=config.build%>style/ie.css': '<%=config.src%>style/scss/ie.scss'
         }
       }
     },
