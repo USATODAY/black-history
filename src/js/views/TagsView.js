@@ -95,7 +95,7 @@ define(
             }, this.addDelay);
 
         },
-         addDelay: 4000
+         addDelay: 3000
     });
 
 

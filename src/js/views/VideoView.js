@@ -16,6 +16,7 @@ define(
         initialize: function() {
            this.listenTo(Backbone, "render:video", this.renderVideo); 
            this.listenTo(Backbone, "video:ready", this.onVideoReady);
+           this.listenTo(Backbone, "video:ended", this.onVideoEnded);
            this.listenTo(Backbone, "get:video", this.onGetVideo);
            this.listenTo(Backbone, "update:video", this.updateView);
            this.listenTo(Backbone, "share:close", this.onShareClose);
@@ -176,6 +177,9 @@ define(
         addCredits: function() {
             this.creditsView = new CreditsView({model: new CreditsModel()});
             $('.iapp-wrap').append(this.creditsView.render().el);
+        },
+        onVideoEnded: function() {
+            this.onTopicsClick();
         }
     });
 
