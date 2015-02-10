@@ -109,11 +109,18 @@ return __p
 
 this["templates"]["share.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n\n<h3 class="iapp-share-intro">Your turn, ' +
+__p += '<div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n\n';
+ if (userName != "") { ;
+__p += '\n<h3 class="iapp-share-intro">Your turn, ' +
 ((__t = (userName)) == null ? '' : __t) +
-'. Continue this conversation by sharing this video.</h3>\n\n<p class="iapp-share-preview">' +
+'. Continue this conversation by sharing this video.</h3>\n';
+} else { ;
+__p += '\n<h3 class="iapp-share-intro">Your turn. Continue this conversation by sharing this video.</h3>\n';
+};
+__p += '\n\n<p class="iapp-share-preview">' +
 ((__t = (sharelanguage)) == null ? '' : __t) +
 '</p>\n\n<div class="iapp-share-buttons">\n    <a href="https://twitter.com/intent/tweet?url=' +
 ((__t = (twitterShare)) == null ? '' : __t) +

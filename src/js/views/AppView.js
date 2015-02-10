@@ -44,6 +44,14 @@ define(
             onNameSet: function(name) {
                 dataManager.userName = name;
             },
+            onPanelScroll: function(e) {
+                console.log(e);
+                if (e.currentTarget.scrollTop > 0) {
+                    $('.iapp-header').addClass('iapp-fadeOut');
+                } else {
+                    $('.iapp-header').removeClass('iapp-fadeOut');
+                }
+            },
             onVideoRoute: function(clip_name) {
                 
 
@@ -82,6 +90,8 @@ define(
                var indexView = new IndexView({collection: peopleCollection, videoCollection: videoCollection});
 
                this.subViews.push(indexView);
+
+               this.$('.iapp-panel').scroll(this.onPanelScroll);
             },
             currentSubView: 0,
             goForward: function() {

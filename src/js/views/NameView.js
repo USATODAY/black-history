@@ -16,7 +16,7 @@ define(
             "click .iapp-name-skip-button": "onNextClick",
             'keyup .iapp-name-input': "onKeyPress"
         },
-        className: 'iapp-panel upcoming',
+        className: 'iapp-panel iapp-name-panel upcoming',
         template: templates['name.html'],
         render: function() {
             this.$el.html(this.template({userName: this.userName, name_text: dataManager.data.name_text, greeting: this.getGreeting()}));
