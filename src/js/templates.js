@@ -68,13 +68,22 @@ return __p
 
 this["templates"]["name.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">' +
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-greeting">' +
+((__t = (greeting)) == null ? '' : __t) +
+'</h3>\n        <h3 class="iapp-name-info">' +
 ((__t = (name_text)) == null ? '' : __t) +
-'</h3>\n        <input type="text" class="iapp-name-input" placeholder="Your name here">\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Thank you, ' +
+'</h3>\n        <input type="text" class="iapp-name-input" placeholder="Your name here">\n        <div class="iapp-name-skip-button">Skip</div>\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        ';
+ if (userName != "") { ;
+__p += '\n        <h3 class="iapp-name-info">Thank you, ' +
 ((__t = (userName)) == null ? '' : __t) +
-'. We\'re getting someone for you.</h3>\n    </div>\n</div>';
+'. We\'re getting someone for you.</h3>\n        ';
+} else { ;
+__p += '\n        <h3 class="iapp-name-info">Thank you. We\'re getting someone for you.</h3>\n        ';
+};
+__p += '\n    </div>\n</div>';
 
 }
 return __p
@@ -165,13 +174,22 @@ return __p
 
 this["templates"]["video.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-video-info">\n    <h4 class=\'iapp-video-greeting\'>' +
+__p += '<div class="iapp-video-info">\n     ';
+ if (userName != "") { ;
+__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (userName)) == null ? '' : __t) +
 ', ' +
 ((__t = (intro)) == null ? '' : __t) +
-'</h4>\n    <div class="iapp-video-more-button button">More</div>\n    <div class="iapp-video-discuss-button button">Discuss</div>\n</div>\n';
+'</h4>\n    ';
+} else { ;
+__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
+((__t = (intro)) == null ? '' : __t) +
+'</h4>\n    ';
+};
+__p += '\n    <div class="iapp-video-more-button button">More</div>\n    <div class="iapp-video-discuss-button button">Discuss</div>\n</div>\n';
 
 }
 return __p
