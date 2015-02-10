@@ -16,6 +16,7 @@ define(
         initialize: function() {
            this.listenTo(Backbone, "render:video", this.renderVideo); 
            this.listenTo(Backbone, "video:ready", this.onVideoReady);
+           this.listenTo(Backbone, "video:ended", this.onVideoEnded);
            this.listenTo(Backbone, "get:video", this.onGetVideo);
            this.listenTo(Backbone, "update:video", this.updateView);
            this.listenTo(Backbone, "share:close", this.onShareClose);
@@ -28,7 +29,8 @@ define(
             'click .iapp-video-discuss-button': 'onShareClick',
             'click .iapp-video-credits-button': 'onCreditsClick',
             'click .iapp-video-replay-button': 'onReplayClick',
-            'click .iapp-video-play-button': 'onPlayClick'
+            'click .iapp-video-play-button': 'onPlayClick',
+            'click .iapp-video-topics-button': 'onTopicsClick'
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
@@ -112,6 +114,11 @@ define(
                 }
             }
         },
+        onTopicsClick: function() {
+            this.brightcoveView.pauseVideo();
+            Backbone.trigger('app:goBack');
+            Backbone.trigger('tags:reset');
+        },
         updateView: function(newVideoModel) {
 
 
@@ -170,6 +177,9 @@ define(
         addCredits: function() {
             this.creditsView = new CreditsView({model: new CreditsModel()});
             $('.iapp-wrap').append(this.creditsView.render().el);
+        },
+        onVideoEnded: function() {
+            this.onTopicsClick();
         }
     });
 

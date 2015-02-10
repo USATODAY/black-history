@@ -87,10 +87,15 @@ define(
 
              _.delay(function() {
                 Backbone.trigger("app:advance");
+                _.delay(function() {
+                    this.$('.iapp-tag-sub1').addClass('active').removeClass('done');
+                    this.$('.iapp-tag-intro').addClass('upcoming').removeClass('active');
+                }, 1000);
                
             }, this.addDelay);
+
         },
-         addDelay: 4000
+         addDelay: 3000
     });
 
 

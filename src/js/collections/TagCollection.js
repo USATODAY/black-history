@@ -15,6 +15,7 @@ define(
             // console.log(this.activeTags);
             this.on('change:isActive', this.onActiveChange); 
             this.listenTo(Backbone, 'videos:filtered', this.onVideosFiltered);
+            this.listenTo(Backbone, 'tags:reset', this.onTagsReset);
         },
 
         onActiveChange: function() {
@@ -29,6 +30,7 @@ define(
 
         onVideosFiltered: function(availableTags) {
             console.log(availableTags);
+            
             this.each(function(model) {
                 if (_.contains(availableTags, model.get('tagName'))) {
                     
@@ -41,6 +43,11 @@ define(
             });
 
             // console.log(this.where({'isAvailable': true}));
+        },
+        onTagsReset: function() {
+            this.each(function(tag) {
+                tag.set({'isActive': false});
+            });
         }
              
         
