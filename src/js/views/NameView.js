@@ -13,6 +13,7 @@ define(
         },
         events: {
             "click .name-next-button": "onNextClick",
+            "click .iapp-name-skip-button": "onNextClick",
             'keyup .iapp-name-input': "onKeyPress"
         },
         className: 'iapp-panel upcoming',
