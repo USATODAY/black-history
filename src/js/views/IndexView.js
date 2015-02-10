@@ -51,7 +51,8 @@ define(
             },
 
             events: {
-                'click .iapp-index-back-close': 'onBackCloseClick'
+                'click .iapp-index-back-close': 'onBackCloseClick',
+                'click .iapp-index-close': 'onIndexHide'
             },
             template: templates['indextab.html'],
             className: 'iapp-panel upcoming iapp-index-panel iapp-flip-container',

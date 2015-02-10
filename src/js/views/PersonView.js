@@ -19,7 +19,7 @@ define(
                 'click': 'onClick'
             },
             template: templates['person.html'],
-            className: 'iapp-person-item',
+            className: 'iapp-person-item iapp-clickable',
             onClick: function() {
                 Backbone.trigger("person:selected", this.model);
             }

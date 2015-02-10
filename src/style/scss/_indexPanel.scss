@@ -11,8 +11,12 @@
 }
 
 .iapp-person-item {
-    background-color: rgba(25, 25, 25, 0.5);
+    background-color: $dark-grey;
+
     width: 100%;
+    @media(min-width: 1200px) {
+        font-size: 0.8em;
+    }
 }
 
 .iapp-person-item-img {
@@ -21,7 +25,16 @@
 
 .iapp-person-bio, .iapp-person-name {
     margin: 0;
-    padding: 0 1em;
+    // padding: 0 1em;
+}
+
+.iapp-person-name {
+    margin-bottom: 0.5em;
+}
+
+.iapp-person-text {
+    font-size: 1em;
+    padding: 0.5em 1em;
 }
 
 .iapp-clip-index {
@@ -71,12 +84,26 @@
         top: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+        @media(min-width: 1200px) {
+            font-size: 1em;
+        }
     }
 }
 
 .iapp-index-back-close {
-    left: 0.5em;
+    height: 60px;
+    left: 1em;
+    margin: 0;
     position: absolute;
-    top: 0.5em;
+    top: 1em;
+    width: 60px;
     z-index: 5;
+}
+
+.iapp-index-close {
+    position: fixed;
+    right: 1em;
+    top: 1em;
+    width: 60px;
+    z-index: 50;
 }

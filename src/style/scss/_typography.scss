@@ -42,3 +42,23 @@ h1, h2, h3, h4, h5, h6 {
 strong {
   font-family: "Futura Today Bold", Arial,sans-serif;
 }
+
+.iapp-panel-text-main {
+  font-family: "Futura Today Normal", Arial,sans-serif;
+  font-size: 1.35rem;
+  text-align: center;
+  text-transform: uppercase;
+  p {
+    font-family: "Futura Today Normal", Arial,sans-serif;
+    font-size: 1.35rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  @media(min-width: 1200px) {
+      font-size: 1.8rem;
+      p {
+        font-size: 1.8rem;
+      }
+  }
+}

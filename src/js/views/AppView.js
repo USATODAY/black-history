@@ -80,13 +80,13 @@ define(
                this.$el.append(introView.render(dataManager.data).el);
                this.subViews.push(introView);
 
-               var tagsView = new TagsView({collection: new TagCollection(dataManager.data.tags)});
-               this.$el.append(tagsView.render().el);
-               this.subViews.push(tagsView);
-
                var nameView = new NameView();
                this.$el.append(nameView.render().el);
                this.subViews.push(nameView);
+
+               var tagsView = new TagsView({collection: new TagCollection(dataManager.data.tags)});
+               this.$el.append(tagsView.render().el);
+               this.subViews.push(tagsView);
 
                var videoCollection = new VideoCollection(dataManager.data.videos);
                this.videoCollection = videoCollection;

@@ -1,7 +1,10 @@
 .iapp-name-input {
    background: none;
-   border: solid 1px white;
-   border-radius: 5px;
+   // border: none;
+   border-image: none;
+   border-style: none;
+   border-bottom: solid 4px white;
+   // border-radius: 5px;
    box-shadow: none;
    color: white;
    font-family: "Futura Today Demibold", Arial,sans-serif;
@@ -13,7 +16,7 @@
    -webkit-appearance: none; 
 
    &:focus {
-        border: solid 1px $blue;
+        border-bottom: solid 4px $blue;
         outline: none;
    }
 
