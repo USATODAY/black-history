@@ -24,7 +24,7 @@ __p += '<!-- Start of Brightcove Player -->\n\n<div style="display:none">\nInter
 ((__t = (brightcoveid)) == null ? '' : __t) +
 '" class="BrightcoveExperience">\n  <param name="bgcolor" value="#FFFFFF" />\n  <param name="width" value="640" />\n  <param name="height" value="390" />\n  <param name="playerID" value="1797379879001" />\n  <param name="playerKey" value="AQ~~,AAAABvaL8JE~,ufBHq_I6FnzwGj3ZkG57q5Cei-R6yZca" />\n  <param name="isSlim" value="true" />\n  <param name="dynamicStreaming" value="true" />\n  <param name="includeAPI" value="true" />\n    \n  <param name="@videoPlayer" value="' +
 ((__t = (brightcoveid)) == null ? '' : __t) +
-'" />\n  <param name="templateReadyHandler" value="onTemplateReady" />\n</object>\n\n\n<!-- End of Brightcove Player -->';
+'" />\n  <param name="templateReadyHandler" value="onTemplateReady" />\n  <param name="wmode" value="opaque" />\n</object>\n\n\n<!-- End of Brightcove Player -->';
 
 }
 return __p
