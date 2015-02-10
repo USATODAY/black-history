@@ -108,6 +108,9 @@
     transform: translateZ(5px);
     width: 60px;
     z-index: 10;
+    img {
+        display: block;
+    }
 }
 
 .iapp-flipped .iapp-index-close {
