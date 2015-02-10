@@ -7,6 +7,7 @@
     right: 0;
     width: 400px;
     max-width: 100%;
+    z-index: 15;
 }
 
 .iapp-person-item {
@@ -53,6 +54,7 @@
     background: rgba(0, 0, 0, 0.5);
     height: 100%;
     left: 0;
+    padding: 0 0.5em;
     position: absolute;
     top: 0;
     transition: background 250ms ease;
@@ -60,10 +62,12 @@
     &:hover {
         background: rgba(0, 0, 0, 0.25);
     }
-    h2 {
+    .iapp-clip-quote-text {
+        font-family: "Futura Today Light", Arial, sans-serif;
         left: 50%;
         position: absolute;
         text-align: center;
+        text-transform: uppercase;
         top: 50%;
         transform: translate(-50%, -50%);
         width: 100%;

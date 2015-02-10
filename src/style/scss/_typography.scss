@@ -1,4 +1,15 @@
-html { font-weight: normal; font-family: "Futura Today Normal", Arial,sans-serif;}
+html { 
+  font-weight: normal; 
+  font-family: "Futura Today Normal", 
+  Arial,sans-serif;
+}
+
+.iapp-wrap {
+  font-size: 100%;
+  @media (min-width: 1200px) {
+    font-size: 150%;
+  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Futura Today Bold", Arial,sans-serif;
