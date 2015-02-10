@@ -6,7 +6,11 @@ this["templates"]["app.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-header">\n    \n        <img class=\'iapp-usat-logo-image\' src="http://www.gannett-cdn.com/experiments/usatoday/_common/_images/USAT_Logo_white.svg" alt="USA TODAY">\n        <div class="iapp-project-title">#blackhistorymonth</div>\n\n    </div>\n\n\n';
+__p += '<div class="iapp-header">\n    <img class=\'iapp-usat-logo-image\' src="' +
+((__t = (logo)) == null ? '' : __t) +
+'" alt="USA TODAY">\n    <div class="iapp-project-title">' +
+((__t = (title)) == null ? '' : __t) +
+'</div>\n</div>\n\n\n';
 
 }
 return __p
@@ -56,9 +60,7 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="iapp-intro-content-wrap iapp-content-wrap">\n    <div class="iapp-content-card">\n        <h2 class="iapp-intro-header">' +
 ((__t = (head)) == null ? '' : __t) +
-'</h2>\n        <p class="iapp-intro-chatter">' +
-((__t = (chatter)) == null ? '' : __t) +
-'</p>\n        \n        <div class="intro-next-button button">Next</div>\n    </div>\n\n    \n</div>\n\n<!-- <div class="sprite-test-wrap">\n        <div class="sprite-test"></div>\n    </div> -->';
+'</h2>\n        <div class="intro-next-button button">Next</div>\n    </div>  \n</div>';
 
 }
 return __p
@@ -68,7 +70,9 @@ this["templates"]["name.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Let\'s have a conversation</h3>\n        <h3 class="iapp-name-info">First, what\'s your name?</h3>\n        <input type="text" class="iapp-name-input" placeholder="Your name here">\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Thank you, ' +
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">' +
+((__t = (name_text)) == null ? '' : __t) +
+'</h3>\n        <input type="text" class="iapp-name-input" placeholder="Your name here">\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-info">Thank you, ' +
 ((__t = (userName)) == null ? '' : __t) +
 '. We\'re getting someone for you.</h3>\n    </div>\n</div>';
 
@@ -139,7 +143,9 @@ this["templates"]["tags.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header">What would you like to discuss?</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button hide">Next</div>\n\n</div>';
+__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header">' +
+((__t = (tag_text)) == null ? '' : __t) +
+'</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button hide">Next</div>\n\n</div>';
 
 }
 return __p

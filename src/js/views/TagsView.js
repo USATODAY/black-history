@@ -3,9 +3,10 @@ define(
     'jquery',
     'underscore',
     'backbone',
-    'views/TagView'
+    'views/TagView',
+    'dataManager'
   ],
-  function(jQuery, _, Backbone, TagView) {
+  function(jQuery, _, Backbone, TagView, dataManager) {
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(this.collection, 'change:isActive', this.filter);
@@ -21,7 +22,7 @@ define(
             var config = { isMobile: false};
 
             var _this = this;
-            this.$el.html(this.template());
+            this.$el.html(this.template({tag_text: dataManager.data.tag_text}));
             
             this.collection.each(function(tagModel) {
                  var tagView = new TagView({model: tagModel})
