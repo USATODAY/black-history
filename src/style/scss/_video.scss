@@ -37,6 +37,10 @@
                 font-size: 0.6em;
             }
         }
+        .iapp-video-play-button.button, .iapp-video-replay-button.button {
+            display: none;
+        }
+        
     }
     .button {
         display: inline-block;
@@ -66,6 +70,22 @@
 
 .iapp-video-greeting {
     font-family: "Futura Today Light", Arial,sans-serif;
+    max-width: 28em;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
+}
+
+.tablet .iapp-video-play-button.button {
+    display: none;
+}
+
+@media(max-height: 500px) {
+    .iapp-video-play-button.button, .iapp-video-replay-button.button {
+            display: none;
+        }
+
+    .iapp-video-info {
+        bottom: 0;
+        padding: 1em;
+    }
 }

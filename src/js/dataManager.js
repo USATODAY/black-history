@@ -13,7 +13,10 @@ define(
     if (hostname == "localhost") {
         dataURL = 'data/data.json';
     } else {
+
+
         dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/data/data.json";
+
     }
 
     return {

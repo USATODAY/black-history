@@ -33,6 +33,12 @@ define(
                             Backbone.trigger("window:resize");
                         });
 
+                        if(window.Modernizr !== undefined && window.innerWidth <=1100) {
+                            if (Modernizr.touch) {
+                                $('.iapp-wrap').addClass('tablet');
+                            }
+                        }
+
                         //set global callback for Brightcove videos to use
                         window.onTemplateReady = function(evt) {
                             console.log("video ready handler window");

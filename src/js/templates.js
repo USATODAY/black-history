@@ -102,7 +102,7 @@ this["templates"]["indextab.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-index-close iapp-clickable">\n    <img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close">\n</div>\n<div class="iapp-flip-item">\n\n    <div class="iapp-people-index iapp-flip-front">\n        \n    </div>\n    <div class="iapp-clip-index iapp-flip-back">\n        <div class="iapp-index-back-close button iapp-button-small"><div class="iapp-button-text">BACK</div></div>\n        <div class="iapp-clip-container"></div></div>\n</div>';
+__p += '\n<div class="iapp-flip-item">\n    <div class="iapp-people-index iapp-flip-front">\n        <div class="iapp-index-close iapp-clickable">\n            <img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close">\n        </div>\n    </div>\n    <div class="iapp-clip-index iapp-flip-back">\n        <div class="iapp-index-back-close button iapp-button-small">\n            <div class="iapp-button-text">BACK</div>\n        </div>\n        <div class="iapp-clip-container"></div>\n    </div>\n</div>';
 
 }
 return __p
@@ -256,7 +256,7 @@ __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (intro)) == null ? '' : __t) +
 '</h4>\n    ';
 };
-__p += '\n    \n    <div class="iapp-video-info-buttons">\n    <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share</div></div>\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">Watch More</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n    </div>\n</div>\n';
+__p += '\n    \n    <div class="iapp-video-info-buttons">\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">Watch More</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n        <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share</div></div>\n        <div class="iapp-video-play-button button iapp-button-small"><div class="iapp-button-text">Pause</div></div>\n        <div class="iapp-video-replay-button button iapp-button-small"><div class="iapp-button-text">Replay</div></div>\n        \n        \n    </div>\n</div>\n';
 
 }
 return __p
