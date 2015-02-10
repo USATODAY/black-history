@@ -72,11 +72,17 @@ panel positions
 
 .iapp-content-wrap {
   padding: 2em;
-  margin: 4em auto 0 auto;
+  margin: 3em auto 0 auto;
   max-width: 900px;
-  @media(max-width: 600px) {
-    margin: 2em auto 0 auto;
-    }
+  position: static;
+  transform: none;
+  @media(min-width: 600px) {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 }
 
 .iapp-section-header {
