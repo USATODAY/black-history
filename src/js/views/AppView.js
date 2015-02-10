@@ -14,9 +14,10 @@ define(
     'collections/VideoCollection',
     'collections/PeopleCollection',
     'router',
+    'models/config',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, router, templates){
+  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, router, config, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
@@ -24,7 +25,15 @@ define(
                 this.listenTo(Backbone, "app:goBack", this.goBack);
                 this.listenTo(Backbone, "name:set", this.onNameSet);
                 this.listenTo(Backbone, "router:video", this.onVideoRoute);
-                this.logoURL = $('.site-nav-logo-img').attr('src');
+                if (!config.isMobile) {
+                    this.logoURL = $('.site-nav-logo-img').attr('src');
+                } else {
+                    var logo = $('.header-logo');
+                    var bg = logo.css('background');
+
+                    this.logoURL = bg.substring(bg.indexOf('url(') + 4, bg.indexOf('.png') + 4);
+                }
+                
                 
             },
             events: {
