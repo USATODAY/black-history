@@ -11,6 +11,7 @@ define(
         initialize: function() {
            this.listenTo(this.collection, 'change:isActive', this.filter);
            this.listenTo(Backbone, 'video:set', this.advanceSub);
+           this.listenTo(Backbone, 'tags:reset', this.onTagsReset);
         },
         events: {
             "click .tags-next-button": "onNextClick"
@@ -95,7 +96,10 @@ define(
             }, this.addDelay);
 
         },
-         addDelay: 3000
+        addDelay: 3000,
+        onTagsReset: function() {
+            this.$('.iapp-tag-container').isotope('layout');
+        }
     });
 
 
