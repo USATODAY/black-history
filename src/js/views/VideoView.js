@@ -26,7 +26,9 @@ define(
         events: {
             'click .iapp-video-more-button': 'onMoreClick',
             'click .iapp-video-discuss-button': 'onShareClick',
-            'click .iapp-video-credits-button': 'onCreditsClick'
+            'click .iapp-video-credits-button': 'onCreditsClick',
+            'click .iapp-video-replay-button': 'onReplayClick',
+            'click .iapp-video-play-button': 'onPlayClick'
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
@@ -77,11 +79,38 @@ define(
             Backbone.trigger('credits:show');
         },
         onVideoReady: function() {
-
+            // this.brightcoveView.bcPlayer.getIsPlaying(cb);
+            // var _this = this;
+            // function cb(result) {
+            //     if (result) {
+            //         // _this.brightcoveView.pauseVideo();
+            //         _this.$('.iapp-video-play-button').find('.iapp-button-text').text("Play");
+            //     } else {
+            //         // _this.brightcoveView.playVideo();
+            //         _this.$('.iapp-video-play-button').find('.iapp-button-text').text("Pause");
+            //     }
+            // }
         },
         onTagsSet: function() {
             this.selectedVideoModel = this.collection.pickVideo();
             Backbone.trigger('video:set', this.selectedVideoModel);
+        },
+        onReplayClick: function() {
+            this.brightcoveView.bcPlayer.seek(0);
+        },
+        onPlayClick: function() {
+            
+            this.brightcoveView.bcPlayer.getIsPlaying(cb);
+            var _this = this;
+            function cb(result) {
+                if (result) {
+                    _this.brightcoveView.pauseVideo();
+                    _this.$('.iapp-video-play-button').find('.iapp-button-text').text("Play");
+                } else {
+                    _this.brightcoveView.playVideo();
+                    _this.$('.iapp-video-play-button').find('.iapp-button-text').text("Pause");
+                }
+            }
         },
         updateView: function(newVideoModel) {
 

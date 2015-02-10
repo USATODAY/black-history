@@ -44,8 +44,10 @@ define(
                       var fullWidth = numWidth/100 * window.innerWidth;
                       var fullHeight = window.innerHeight;
                       this.bcExperience.setSize(fullWidth, fullHeight)
-                    }
+                    } 
 
+                  } else {
+                    console.log(undefined);
                   }
 
                 } else {
@@ -61,9 +63,11 @@ define(
                       var fullWidth = window.innerWidth;
 
                    
-                      this.bcExperience.setSize(fullWidth, numHeight);
+                      this.bcExperience.setSize(fullWidth, fullHeight);
                     }
                     
+                  } else {
+                    console.log(undefined);
                   }
                 }
 
