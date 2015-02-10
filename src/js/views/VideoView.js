@@ -28,7 +28,8 @@ define(
             'click .iapp-video-discuss-button': 'onShareClick',
             'click .iapp-video-credits-button': 'onCreditsClick',
             'click .iapp-video-replay-button': 'onReplayClick',
-            'click .iapp-video-play-button': 'onPlayClick'
+            'click .iapp-video-play-button': 'onPlayClick',
+            'click .iapp-video-topics-button': 'onTopicsClick'
         },
         className: 'iapp-panel iapp-video-panel upcoming',
         template: templates['video.html'],
@@ -111,6 +112,11 @@ define(
                     _this.$('.iapp-video-play-button').find('.iapp-button-text').text("Pause");
                 }
             }
+        },
+        onTopicsClick: function() {
+            this.brightcoveView.pauseVideo();
+            Backbone.trigger('app:goBack');
+            Backbone.trigger('tags:reset');
         },
         updateView: function(newVideoModel) {
 
