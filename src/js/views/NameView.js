@@ -18,7 +18,7 @@ define(
         className: 'iapp-panel upcoming',
         template: templates['name.html'],
         render: function() {
-            this.$el.html(this.template({userName: this.userName, name_text: dataManager.data.name_text}));
+            this.$el.html(this.template({userName: this.userName, name_text: dataManager.data.name_text, greeting: this.getGreeting()}));
             return this;
         },
         onNextClick: function() {
@@ -48,7 +48,23 @@ define(
             this.userName = this.$('.iapp-name-input').val();
             Backbone.trigger("name:set", this.userName);
         },
+        getGreeting: function() {
+            var greetings = ['Good morning.', 'Good afternoon.', 'Good evening.'];
+            var date = new Date();
+            var hour = date.getHours();
+            var result;
+
+            if (hour < 12) {
+                result = greetings[0];
+            } else if (hour < 18){
+                result = greetings[1];
+            } else {
+                result = greetings[2];
+            }
+            return result;
+        },
         addDelay: 4000
+
     });
 
 

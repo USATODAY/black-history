@@ -1,5 +1,9 @@
 <div class="iapp-video-info">
+     <% if (userName != "") { %>
     <h4 class='iapp-video-greeting'><%=userName%>, <%=intro%></h4>
+    <%} else { %>
+    <h4 class='iapp-video-greeting'><%=intro%></h4>
+    <%}%>
     <div class="iapp-video-more-button button">More</div>
     <div class="iapp-video-discuss-button button">Discuss</div>
 </div>
