@@ -10,12 +10,14 @@ define(
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(this.collection, 'change:isActive', this.filter);
+           this.listenTo(Backbone, 'video:set', this.advanceSub);
         },
         events: {
             "click .tags-next-button": "onNextClick"
         },
         className: 'iapp-panel upcoming',
         template: templates['tags.html'],
+        greetingTemplate: templates['greeting.html'],
         render: function(data) {
 
             //temp remove once config is in place
@@ -41,7 +43,9 @@ define(
             return this;
         },
         onNextClick: function() {
-            Backbone.trigger("app:advance");
+            // this.advanceSub();
+            Backbone.trigger("tags:set");
+            // Backbone.trigger("app:advance");
         },
         filter: function() {
             this.$('.iapp-tag-container').isotope({filter: ':not(.unavailable)'});
@@ -74,6 +78,19 @@ define(
             }
             return result;
         },
+        advanceSub: function(selectedVideoModel) {
+            
+            this.$('.iapp-tag-intro').html(this.greetingTemplate(selectedVideoModel.toJSON()));
+            
+            this.$('.iapp-tag-sub1').removeClass('active').addClass('done');
+            this.$('.iapp-tag-intro').removeClass('upcoming').addClass('active');
+
+             _.delay(function() {
+                Backbone.trigger("app:advance");
+               
+            }, this.addDelay);
+        },
+         addDelay: 4000
     });
 
 

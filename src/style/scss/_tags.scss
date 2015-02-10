@@ -1,7 +1,12 @@
 .iapp-tag-container {
     @extend .group;
+
+
 }
 
+.iapp-tag-intro .iapp-video-greeting{
+    text-align: center;
+}
 .iapp-tag-item {
     // animation: fadeOut 250ms linear backwards;
     border: solid 1px white;

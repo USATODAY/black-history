@@ -75,6 +75,29 @@ __p += '\n    </h3>\n</div>';
 return __p
 };
 
+this["templates"]["greeting.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<div class="iapp-content-wrap">\n    ';
+ if (userName != "") { ;
+__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
+((__t = (userName)) == null ? '' : __t) +
+', ' +
+((__t = (intro)) == null ? '' : __t) +
+'</h4>\n    ';
+} else { ;
+__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
+((__t = (intro)) == null ? '' : __t) +
+'</h4>\n    ';
+};
+__p += '\n</div>';
+
+}
+return __p
+};
+
 this["templates"]["indextab.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -159,6 +182,8 @@ __p += '\n    \n    <p class="iapp-share-preview">' +
 ((__t = (twitterShare)) == null ? '' : __t) +
 '&text=' +
 ((__t = (encodedShare)) == null ? '' : __t) +
+'&hashtags=' +
+((__t = (hashtags)) == null ? '' : __t) +
 '" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/twitter.svg" alt="Twitter share"></a>\n        <a href=\'https://www.facebook.com/dialog/feed?display=popup&app_id=' +
 ((__t = (fb_id)) == null ? '' : __t) +
 '&link=' +
@@ -192,11 +217,11 @@ this["templates"]["tags.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
+__p += '<div class="iapp-panel iapp-tag-sub1 active">\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-section-header iapp-panel-text-main">' +
 ((__t = (tag_text)) == null ? '' : __t) +
 ' ' +
 ((__t = (greeting)) == null ? '' : __t) +
-'</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button hide iapp-clickable">\n        <div class="iapp-button-text">Next</div>\n    </div>\n\n</div>';
+'</h2>\n        <div class="iapp-tag-container">\n            \n        </div>\n    \n        <div class="tags-next-button button hide iapp-clickable">\n            <div class="iapp-button-text">Next</div>\n        </div>\n    \n    </div>\n</div>\n\n<div class="iapp-panel iapp-tag-intro upcoming">\n\n    \n</div>';
 
 }
 return __p

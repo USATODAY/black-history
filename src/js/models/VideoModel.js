@@ -17,7 +17,8 @@ define(
             'tags': [],
             'userName': '',
             'sharelanguage': '',
-            'stillimage': ''
+            'stillimage': '',
+            'hashtags': ''
         },
 
         initialize: function() {
