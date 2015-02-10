@@ -16,7 +16,7 @@ define(
             },
             template: templates['clip.html'],
             className: function() {
-                return 'iapp-clip-index-item ' + this.model.get('first_name');
+                return 'iapp-clip-index-item iapp-clickable ' + this.model.get('first_name');
             },
             onClick: function() {
                 Backbone.trigger("update:video", this.model);

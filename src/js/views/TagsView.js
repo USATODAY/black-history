@@ -22,7 +22,7 @@ define(
             var config = { isMobile: false};
 
             var _this = this;
-            this.$el.html(this.template({tag_text: dataManager.data.tag_text}));
+            this.$el.html(this.template({tag_text: dataManager.data.tag_text, greeting: this.getGreeting()}));
             
             this.collection.each(function(tagModel) {
                  var tagView = new TagView({model: tagModel})
@@ -58,7 +58,22 @@ define(
                 $('.tags-next-button').addClass('hide');
             }
             
-        }
+        },
+        getGreeting: function() {
+            var greetings = ['this morning?', 'this afternoon?', 'this evening?'];
+            var date = new Date();
+            var hour = date.getHours();
+            var result;
+
+            if (hour < 12) {
+                result = greetings[0];
+            } else if (hour < 18){
+                result = greetings[1];
+            } else {
+                result = greetings[2];
+            }
+            return result;
+        },
     });
 
 

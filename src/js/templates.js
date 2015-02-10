@@ -48,11 +48,28 @@ return __p
 
 this["templates"]["credits.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-credits-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n<h3 class="iapp-section-header">Credits</h3>\n<h3 class="iapp-project-credits">' +
-((__t = (project_credits)) == null ? '' : __t) +
-'</h3>';
+__p += '<div class="iapp-content-wrap">\n    <div class="iapp-credits-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n    <h2 class="iapp-section-header iapp-panel-text-main">About</h2>\n    <p class="iapp-section-text">' +
+((__t = (credits_intro)) == null ? '' : __t) +
+'</p>\n    <h2 class="iapp-section-header iapp-panel-text-main">Credits</h2>\n    <h3 class="iapp-project-credits">\n        ';
+ _.each(project_credits, function(creditObj) { ;
+__p += '\n            ';
+ if (creditObj.credit_url != null) { ;
+__p += '\n            <a href="' +
+((__t = (creditObj.credit_url)) == null ? '' : __t) +
+'" class="iapp-project-credit-link" target="_blank">' +
+((__t = (creditObj.credit_text)) == null ? '' : __t) +
+'</a>,\n            ';
+  } else {;
+__p += '\n            <span class="iapp-project-credit-text">' +
+((__t = (creditObj.credit_text)) == null ? '' : __t) +
+'</span>\n            ';
+  } ;
+__p += '\n         ';
+  }) ;
+__p += '\n    </h3>\n</div>';
 
 }
 return __p
@@ -62,7 +79,7 @@ this["templates"]["indextab.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-flip-item">\n    <div class="iapp-people-index iapp-flip-front"></div>\n    <div class="iapp-clip-index iapp-flip-back"><div class="iapp-index-back-close button">BACK</div><div class="iapp-clip-container"></div></div>\n</div>';
+__p += '<div class="iapp-index-close iapp-clickable">\n    <img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close">\n</div>\n<div class="iapp-flip-item">\n\n    <div class="iapp-people-index iapp-flip-front">\n        \n    </div>\n    <div class="iapp-clip-index iapp-flip-back">\n        <div class="iapp-index-back-close button iapp-button-small"><div class="iapp-button-text">BACK</div></div>\n        <div class="iapp-clip-container"></div></div>\n</div>';
 
 }
 return __p
@@ -72,9 +89,9 @@ this["templates"]["intro.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-intro-content-wrap iapp-content-wrap">\n    <div class="iapp-content-card">\n        <h2 class="iapp-intro-header">' +
+__p += '<div class="iapp-intro-content-wrap iapp-content-wrap">\n    <div class="iapp-content-card">\n        <h2 class="iapp-intro-header iapp-panel-text-main">' +
 ((__t = (head)) == null ? '' : __t) +
-'</h2>\n        <div class="intro-next-button button">Next</div>\n    </div>  \n</div>';
+'</h2>\n        <div class="intro-next-button button"><div class="iapp-button-text">Next</div></div>\n    </div>  \n</div>';
 
 }
 return __p
@@ -85,17 +102,17 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h3 class="iapp-name-greeting">' +
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-name-greeting iapp-panel-text-main">' +
 ((__t = (greeting)) == null ? '' : __t) +
-'</h3>\n        <h3 class="iapp-name-info">' +
+'</h3>\n        <h2 class="iapp-name-info iapp-panel-text-main">' +
 ((__t = (name_text)) == null ? '' : __t) +
-'</h3>\n        <input type="text" class="iapp-name-input" placeholder="Your name here">\n        <div class="iapp-name-skip-button">Skip</div>\n        <div class="name-next-button button">Next</div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        ';
+'</h2>\n        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">\n        <div class="iapp-name-skip-button iapp-clickable">Skip</div>\n        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        ';
  if (userName != "") { ;
-__p += '\n        <h3 class="iapp-name-info">Thank you, ' +
+__p += '\n        <h2 class="iapp-name-info iapp-panel-text-main">Thank you, ' +
 ((__t = (userName)) == null ? '' : __t) +
-'. We\'re getting someone for you.</h3>\n        ';
+'. We\'re getting someone for you.</h2>\n        ';
 } else { ;
-__p += '\n        <h3 class="iapp-name-info">Thank you. We\'re getting someone for you.</h3>\n        ';
+__p += '\n        <h2 class="iapp-name-info iapp-panel-text-main">Thank you. We\'re getting someone for you.</h2>\n        ';
 };
 __p += '\n    </div>\n</div>';
 
@@ -107,15 +124,15 @@ this["templates"]["person.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '    <img src="' +
+__p += '<img src="' +
 ((__t = (person_still)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (person_name)) == null ? '' : __t) +
-'" class="iapp-person-item-img">\n    <h3 class="iapp-person-name">' +
+'" class="iapp-person-item-img">\n<div class="iapp-person-text">\n    <h3 class="iapp-person-name">' +
 ((__t = (person_name)) == null ? '' : __t) +
 '</h3>\n    <p class="iapp-person-bio">' +
 ((__t = (person_bio)) == null ? '' : __t) +
-'</p>\n\n';
+'</p>\n</div>\n\n';
 
 }
 return __p
@@ -126,21 +143,23 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-share-close"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n\n';
+__p += '<div class="iapp-share-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n\n<div class="iapp-content-wrap">\n    ';
  if (userName != "") { ;
-__p += '\n<h3 class="iapp-share-intro">Your turn, ' +
+__p += '\n    <h2 class="iapp-share-intro iapp-panel-text-main">Your turn, ' +
 ((__t = (userName)) == null ? '' : __t) +
-'. Continue this conversation by sharing this video.</h3>\n';
+'. Continue this conversation by sharing this video.</h2>\n    ';
 } else { ;
-__p += '\n<h3 class="iapp-share-intro">Your turn. Continue this conversation by sharing this video.</h3>\n';
+__p += '\n    <h2 class="iapp-share-intro iapp-panel-text-main">Your turn. Continue this conversation by sharing this video.</h2>\n    ';
 };
-__p += '\n\n<p class="iapp-share-preview">' +
+__p += '\n    \n    <p class="iapp-share-preview">' +
 ((__t = (sharelanguage)) == null ? '' : __t) +
-'</p>\n\n<div class="iapp-share-buttons">\n    <a href="https://twitter.com/intent/tweet?url=' +
+'' +
+((__t = (hashtags)) == null ? '' : __t) +
+'</p>\n    \n    <div class="iapp-share-buttons">\n        <a href="https://twitter.com/intent/tweet?url=' +
 ((__t = (twitterShare)) == null ? '' : __t) +
 '&text=' +
 ((__t = (encodedShare)) == null ? '' : __t) +
-'" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/twitter.svg" alt="Twitter share"></a>\n    <a href=\'https://www.facebook.com/dialog/feed?display=popup&app_id=' +
+'" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/twitter.svg" alt="Twitter share"></a>\n        <a href=\'https://www.facebook.com/dialog/feed?display=popup&app_id=' +
 ((__t = (fb_id)) == null ? '' : __t) +
 '&link=' +
 ((__t = (fbShare)) == null ? '' : __t) +
@@ -150,9 +169,9 @@ __p += '\n\n<p class="iapp-share-preview">' +
 ((__t = (encodedShare)) == null ? '' : __t) +
 '&redirect_uri=' +
 ((__t = (fb_redirect)) == null ? '' : __t) +
-'\' class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/facebook.svg" alt="Facebook share"></a>\n    <a href="' +
+'\' class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/facebook.svg" alt="Facebook share"></a>\n        <a href="' +
 ((__t = (email_link)) == null ? '' : __t) +
-'" class="iapp-share-button iapp-share-email"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/email.svg" alt="Email share"></a>\n</div>';
+'" class="iapp-share-button iapp-share-email"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/email.svg" alt="Email share"></a>\n    </div>\n</div>';
 
 }
 return __p
@@ -173,9 +192,11 @@ this["templates"]["tags.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header">' +
+__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
 ((__t = (tag_text)) == null ? '' : __t) +
-'</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button hide">Next</div>\n\n</div>';
+' ' +
+((__t = (greeting)) == null ? '' : __t) +
+'</h2>\n    <div class="iapp-tag-container">\n        \n    </div>\n\n    <div class="tags-next-button button hide iapp-clickable">\n        <div class="iapp-button-text">Next</div>\n    </div>\n\n</div>';
 
 }
 return __p
@@ -210,7 +231,7 @@ __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (intro)) == null ? '' : __t) +
 '</h4>\n    ';
 };
-__p += '\n    <div class="iapp-video-more-button button iapp-large-button">Watch More</div>\n    <div class="iapp-video-discuss-button button">Share & Discuss</div>\n    <div class="iapp-video-credits-button button">About</div>\n</div>\n';
+__p += '\n    \n    <div class="iapp-video-info-buttons">\n        <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share & Discuss</div></div>\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">Watch More</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n    </div>\n</div>\n';
 
 }
 return __p

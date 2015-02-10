@@ -1,19 +1,19 @@
 <div class="iapp-panel iapp-name-input-panel active">
     <div class="iapp-content-wrap">
-        <h3 class="iapp-name-greeting"><%=greeting%></h3>
-        <h3 class="iapp-name-info"><%=name_text%></h3>
-        <input type="text" class="iapp-name-input" placeholder="Your name here">
-        <div class="iapp-name-skip-button">Skip</div>
-        <div class="name-next-button button">Next</div>
+        <h2 class="iapp-name-greeting iapp-panel-text-main"><%=greeting%></h3>
+        <h2 class="iapp-name-info iapp-panel-text-main"><%=name_text%></h2>
+        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">
+        <div class="iapp-name-skip-button iapp-clickable">Skip</div>
+        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>
     </div>
 </div>
 
 <div class="iapp-panel iapp-name-thankyou-panel upcoming">
     <div class="iapp-content-wrap">
         <% if (userName != "") { %>
-        <h3 class="iapp-name-info">Thank you, <%=userName%>. We're getting someone for you.</h3>
+        <h2 class="iapp-name-info iapp-panel-text-main">Thank you, <%=userName%>. We're getting someone for you.</h2>
         <%} else { %>
-        <h3 class="iapp-name-info">Thank you. We're getting someone for you.</h3>
+        <h2 class="iapp-name-info iapp-panel-text-main">Thank you. We're getting someone for you.</h2>
         <%}%>
     </div>
 </div>

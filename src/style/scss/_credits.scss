@@ -11,3 +11,20 @@
     top: 1em;
     width: 60px;
 }
+
+.iapp-project-credit-link {
+    color: white;
+    text-decoration: none;
+    transition: color 250ms ease;
+    &:hover {
+        color: $medium-grey;
+    }
+}
+
+.iapp-project-credits {
+    text-align: center;
+}
+
+.iapp-project-credits {
+    font-family: "Futura Today Light", Arial, sans-serif;
+}
