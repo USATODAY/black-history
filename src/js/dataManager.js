@@ -10,7 +10,7 @@ define(
 
     var dataURL;
 
-    if (hostname == "localhost") {
+    if ((hostname == "localhost" || hostname == "10.0.2.2")) {
         dataURL = 'data/data.json';
     } else {
 

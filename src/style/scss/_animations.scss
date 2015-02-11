@@ -14,34 +14,47 @@ example markup:
 ************/
 
 .iapp-flip-container {
-    perspective: 900px;
+
 }
 
 .iapp-flip-item {
     width: 100%;
     min-height: 100%;
     position: absolute;
-    // perspective: 900px;
+    perspective: 900px;
     transform-style: preserve-3d;
     transition: transform 500ms;
 
     .iapp-flip-back, .iapp-flip-front {
-        // background-color: white;
-        // color: $dark-grey;
-        // box-shadow: $shadow-standard;
+
         display: block;
         position: absolute;
         width: 100%;
         min-height: 100%;
         backface-visibility: hidden;
-        // padding: 2em;
+        transition: transform 500ms;
+
+        * {
+            backface-visibility: hidden;
+        }
+    }
+
+    .iapp-flip-front {
+        transform: rotateY(0deg);
     }
 
     .iapp-flip-back {
-        transform: rotateY( 180deg );
+        transform: rotateY( -180deg );
     }
 
     &.iapp-flipped {
-        transform: rotateY( -180deg );
+        
+        .iapp-flip-front {
+            transform: rotateY(-180deg);
+        }
+
+        .iapp-flip-back {
+            transform: rotateY( -360deg );
+        }
     }
 }

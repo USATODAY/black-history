@@ -193,17 +193,23 @@ IE STYLES
     transition: none;
 
      .iapp-flip-front {
+      display: block;
         z-index: 11;
      }
 
     .iapp-flip-back {
+        display: none;
         transform: translate(100%, 0);
         z-index:12;
     }
 
     &.iapp-flipped {
         .iapp-flip-back {
+          display: block;
           transform: translate(0, 0);
+        }
+        .iapp-flip-front {
+          display: none;
         }
         transform: none;
         

@@ -8,7 +8,7 @@ define(
 
     return Backbone.Collection.extend({
         initialize: function() {
-            // console.log(this);
+           
             this.listenTo(Backbone, 'filters:update', this.onFilterUpdate);
             availableTags = [];
             
