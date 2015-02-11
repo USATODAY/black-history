@@ -176,8 +176,11 @@ define(
              $('.iapp-index-panel').removeClass('iapp-blur');
         },
         addCredits: function() {
-            this.creditsView = new CreditsView({model: new CreditsModel()});
-            $('.iapp-wrap').append(this.creditsView.render().el);
+            if (this.creditsView == undefined) {
+                 this.creditsView = new CreditsView({model: new CreditsModel()});
+                $('.iapp-wrap').append(this.creditsView.render().el);
+            }
+           
         },
         onVideoEnded: function() {
             this.onTopicsClick();
