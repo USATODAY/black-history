@@ -117,10 +117,18 @@ panel positions
 }
 
 .iapp-project-title {
+  color: white;
+  text-decoration: none;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
   font-family: "Futura Today Light", Arial,sans-serif;
   text-align: center;
   width: 100%;
+  &:hover {
+    color: $medium-grey;
+  }
+  &:visited {
+    color: white;
+  }
 }
 
 

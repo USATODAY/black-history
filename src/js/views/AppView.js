@@ -68,7 +68,7 @@ define(
                 this.goToVideo(this.videoCollection.findWhere({'video_clip': clip_name}));
             },
             render: function() {
-               this.$el.append(this.template({logo: this.logoURL, title: dataManager.data.title}));
+               this.$el.append(this.template({logo: this.logoURL, title: dataManager.data.title, page_url: this.getURL()}));
                this.addSubViews();
                return this;
             },
@@ -137,6 +137,9 @@ define(
 
                 oldSub.$el.removeClass('active').addClass('upcoming');
                 newSub.$el.removeClass('done').addClass('active');
+            },
+            getURL: function() {
+                 return 'http://' + window.location.hostname + window.location.pathname;
             }
         });
 });

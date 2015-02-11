@@ -6,11 +6,13 @@ this["templates"]["app.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-header">\n    <img class=\'iapp-usat-logo-image\' src="' +
+__p += '<div class="iapp-header">\n    <a href="' +
+((__t = (page_url)) == null ? '' : __t) +
+'"><img class=\'iapp-usat-logo-image\' src="' +
 ((__t = (logo)) == null ? '' : __t) +
-'" alt="USA TODAY">\n    <div class="iapp-project-title">' +
+'" alt="USA TODAY"></a>\n    <a href="https://twitter.com/hashtag/InTheirWords" target="_blank" class="iapp-project-title">' +
 ((__t = (title)) == null ? '' : __t) +
-'</div>\n</div>\n\n\n';
+'</a>\n</div>\n\n\n';
 
 }
 return __p
