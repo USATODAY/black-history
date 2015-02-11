@@ -66,34 +66,12 @@ define(
 
             
         },
-        //this method can probably be removed
-        onNextClick: function() {
-            if (this.brightcoveView.bcPlayer) {
-                this.brightcoveView.pauseVideo();
-            }
-            
-            
-            // Backbone.trigger("app:advance");
-        },
         onMoreClick: function() {
             Backbone.trigger('index:show');
         },
         onCreditsClick: function() {
             Backbone.trigger('credits:show');
-        },
-        onVideoReady: function() {
-            // this.brightcoveView.bcPlayer.getIsPlaying(cb);
-            // var _this = this;
-            // function cb(result) {
-            //     if (result) {
-            //         // _this.brightcoveView.pauseVideo();
-            //         _this.$('.iapp-video-play-button').find('.iapp-button-text').text("Play");
-            //     } else {
-            //         // _this.brightcoveView.playVideo();
-            //         _this.$('.iapp-video-play-button').find('.iapp-button-text').text("Pause");
-            //     }
-            // }
-        },
+        },        
         onTagsSet: function() {
             this.selectedVideoModel = this.collection.pickVideo();
             Backbone.trigger('video:set', this.selectedVideoModel);
@@ -117,6 +95,7 @@ define(
         },
         onTopicsClick: function() {
             this.brightcoveView.pauseVideo();
+            Backbone.trigger('index:hide');
             Backbone.trigger('app:goBack');
             Backbone.trigger('tags:reset');
         },

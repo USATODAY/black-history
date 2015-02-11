@@ -18,6 +18,8 @@ html, body, .transition-wrap,  article.padded-container, .non-article-content { 
 
 footer { display: none !important;}
 
+body { min-width: 0 !important; }
+
 article {
   background: $dark-grey !important;
   color: white !important;
