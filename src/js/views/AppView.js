@@ -37,7 +37,8 @@ define(
                 
             },
             events: {
-                'click .intro-next-button': 'onNextClick'
+                'click .intro-next-button': 'onNextClick',
+                'click .iapp-usat-logo-image': 'onLogoClick'
             },
             onDataReady: function() {
                 this.render();
@@ -49,6 +50,11 @@ define(
             },
             onNextClick: function() {
                 Backbone.trigger("app:advance");
+            },
+            onLogoClick: function(e) {
+                e.preventDefault();
+                router.navigate('', {trigger: true});
+                window.location.reload();
             },
             onNameSet: function(name) {
                 dataManager.userName = name;
