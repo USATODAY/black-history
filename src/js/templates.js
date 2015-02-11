@@ -54,14 +54,19 @@ with (obj) {
 __p += '<div class="iapp-credits-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header iapp-panel-text-main">About</h2>\n    <p class="iapp-section-text">' +
 ((__t = (credits_intro)) == null ? '' : __t) +
 '</p>\n    <h2 class="iapp-section-header iapp-panel-text-main">Credits</h2>\n    <h3 class="iapp-project-credits">\n        ';
- _.each(project_credits, function(creditObj) { ;
-__p += '\n            ';
- if (creditObj.credit_url != null) { ;
+ _.each(project_credits, function(creditObj) { 
+             if (creditObj.credit_url != null && creditObj.credit_text != "@USATODAY") { ;
 __p += '\n            <a href="' +
 ((__t = (creditObj.credit_url)) == null ? '' : __t) +
 '" class="iapp-project-credit-link" target="_blank">' +
 ((__t = (creditObj.credit_text)) == null ? '' : __t) +
 '</a>,\n            ';
+  } else if (creditObj.credit_url != null){;
+__p += '\n            <a href="' +
+((__t = (creditObj.credit_url)) == null ? '' : __t) +
+'" class="iapp-project-credit-link" target="_blank">' +
+((__t = (creditObj.credit_text)) == null ? '' : __t) +
+'</a>\n            ';
   } else {;
 __p += '\n            <span class="iapp-project-credit-text">' +
 ((__t = (creditObj.credit_text)) == null ? '' : __t) +
