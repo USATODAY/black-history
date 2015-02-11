@@ -14,7 +14,7 @@ define(
             },
 
             initialize: function() {
-                var arrCredits = dataManager.data.project_credits.split(', ');
+                var arrCredits = dataManager.data.project_credits.split(' ');
                 var creditsObjs = _.map(arrCredits, function(credit) {
                     if (credit != 'USA TODAY') {
                         var twitterUrl = 'http://twitter.com/' + credit.substring(1);
