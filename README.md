@@ -22,5 +22,9 @@ and install Bower with
 Once those dependencies are set up, from this repository run `npm install`, then run `grunt`
 
 
-###Live version:
-http://www.gannett-cdn.com/experiments/usatoday/2015/01/black-history/
+##Javascript tests
+
+Tests are stored in the spec folder, and written using the [Jasmine](http://jasmine.github.io/) framework. To run tests, run `grunt test`. There is some test coverage, but it is incomplete.
+
+##Live project
+http://www.usatoday.com/pages/interactives/InTheirWords/
