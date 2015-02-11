@@ -9,10 +9,7 @@ define(
     return Backbone.Collection.extend({
         model: TagModel,
         initialize: function() {
-            // this.activeTags = this.filter(function(model) {
-            //     return model.get("isAvailable");
-            // });
-            // console.log(this.activeTags);
+            
             this.on('change:isActive', this.onActiveChange); 
             this.listenTo(Backbone, 'videos:filtered', this.onVideosFiltered);
             this.listenTo(Backbone, 'tags:reset', this.onTagsReset);
@@ -23,13 +20,13 @@ define(
                 return model.get('tagName');
             });
 
-            console.log(filterArray);
+            
 
             Backbone.trigger('filters:update', filterArray);
         },
 
         onVideosFiltered: function(availableTags) {
-            console.log(availableTags);
+            
             
             this.each(function(model) {
                 if (_.contains(availableTags, model.get('tagName'))) {
