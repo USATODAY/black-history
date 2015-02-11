@@ -46,7 +46,10 @@ define(
             }, this.addDelay);
         },
         goToNext: function() {
-            this.userName = this.$('.iapp-name-input').val();
+
+            var $input = this.$('.iapp-name-input');
+            $input.blur();
+            this.userName = $input.val();
             Backbone.trigger("app:advance");
             Backbone.trigger("name:set", this.userName);
         },

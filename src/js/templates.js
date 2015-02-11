@@ -6,11 +6,13 @@ this["templates"]["app.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-header">\n    <img class=\'iapp-usat-logo-image\' src="' +
+__p += '<div class="iapp-header">\n    <a href="' +
+((__t = (page_url)) == null ? '' : __t) +
+'"><img class=\'iapp-usat-logo-image\' src="' +
 ((__t = (logo)) == null ? '' : __t) +
-'" alt="USA TODAY">\n    <div class="iapp-project-title">' +
+'" alt="USA TODAY"></a>\n    <a href="https://twitter.com/hashtag/InTheirWords" target="_blank" class="iapp-project-title">' +
 ((__t = (title)) == null ? '' : __t) +
-'</div>\n</div>\n\n\n';
+'</a>\n</div>\n\n\n';
 
 }
 return __p
@@ -54,14 +56,19 @@ with (obj) {
 __p += '<div class="iapp-credits-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/img/close.svg" alt="close"></div>\n<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header iapp-panel-text-main">About</h2>\n    <p class="iapp-section-text">' +
 ((__t = (credits_intro)) == null ? '' : __t) +
 '</p>\n    <h2 class="iapp-section-header iapp-panel-text-main">Credits</h2>\n    <h3 class="iapp-project-credits">\n        ';
- _.each(project_credits, function(creditObj) { ;
-__p += '\n            ';
- if (creditObj.credit_url != null) { ;
+ _.each(project_credits, function(creditObj) { 
+             if (creditObj.credit_url != null && creditObj.credit_text != "@USATODAY") { ;
 __p += '\n            <a href="' +
 ((__t = (creditObj.credit_url)) == null ? '' : __t) +
 '" class="iapp-project-credit-link" target="_blank">' +
 ((__t = (creditObj.credit_text)) == null ? '' : __t) +
 '</a>,\n            ';
+  } else if (creditObj.credit_url != null){;
+__p += '\n            <a href="' +
+((__t = (creditObj.credit_url)) == null ? '' : __t) +
+'" class="iapp-project-credit-link" target="_blank">' +
+((__t = (creditObj.credit_text)) == null ? '' : __t) +
+'</a>\n            ';
   } else {;
 __p += '\n            <span class="iapp-project-credit-text">' +
 ((__t = (creditObj.credit_text)) == null ? '' : __t) +
@@ -82,15 +89,15 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="iapp-content-wrap">\n    ';
  if (userName != "") { ;
-__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
+__p += '\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
 ((__t = (userName)) == null ? '' : __t) +
 ', ' +
 ((__t = (intro)) == null ? '' : __t) +
-'</h4>\n    ';
+'</h2>\n    ';
 } else { ;
-__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
+__p += '\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
 ((__t = (intro)) == null ? '' : __t) +
-'</h4>\n    ';
+'</h2>\n    ';
 };
 __p += '\n</div>';
 
@@ -122,22 +129,13 @@ return __p
 
 this["templates"]["name.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
+var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-name-greeting iapp-panel-text-main">' +
 ((__t = (greeting)) == null ? '' : __t) +
 '</h3>\n        <h2 class="iapp-name-info iapp-panel-text-main">' +
 ((__t = (name_text)) == null ? '' : __t) +
-'</h2>\n        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">\n        <div class="iapp-name-skip-button iapp-clickable">Skip</div>\n        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        ';
- if (userName != "") { ;
-__p += '\n        <h2 class="iapp-name-info iapp-panel-text-main">Thank you, ' +
-((__t = (userName)) == null ? '' : __t) +
-'. We\'re getting someone for you.</h2>\n        ';
-} else { ;
-__p += '\n        <h2 class="iapp-name-info iapp-panel-text-main">Thank you. We\'re getting someone for you.</h2>\n        ';
-};
-__p += '\n    </div>\n</div>';
+'</h2>\n        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">\n        <div class="iapp-name-skip-button iapp-clickable">Skip</div>\n        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>\n    </div>\n</div>';
 
 }
 return __p
@@ -256,7 +254,7 @@ __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (intro)) == null ? '' : __t) +
 '</h4>\n    ';
 };
-__p += '\n    \n    <div class="iapp-video-info-buttons">\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">Watch More</div></div>\n        <div class="iapp-video-topics-button button iapp-button-small"><div class="iapp-button-text">Topics</div></div>\n        <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n        <div class="iapp-video-play-button button iapp-button-small"><div class="iapp-button-text">Pause</div></div>\n        <div class="iapp-video-replay-button button iapp-button-small"><div class="iapp-button-text">Replay</div></div>\n        \n        \n    </div>\n</div>\n';
+__p += '\n    \n    <div class="iapp-video-info-buttons">\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">All Videos</div></div>\n        <div class="iapp-video-topics-button button iapp-button-small"><div class="iapp-button-text">Topics</div></div>\n        <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n        <div class="iapp-video-play-button button iapp-button-small"><div class="iapp-button-text">Pause</div></div>\n        <div class="iapp-video-replay-button button iapp-button-small"><div class="iapp-button-text">Replay</div></div>\n        \n        \n    </div>\n</div>\n';
 
 }
 return __p

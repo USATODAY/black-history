@@ -37,7 +37,8 @@ define(
                 
             },
             events: {
-                'click .intro-next-button': 'onNextClick'
+                'click .intro-next-button': 'onNextClick',
+                'click .iapp-usat-logo-image': 'onLogoClick'
             },
             onDataReady: function() {
                 this.render();
@@ -49,6 +50,11 @@ define(
             },
             onNextClick: function() {
                 Backbone.trigger("app:advance");
+            },
+            onLogoClick: function(e) {
+                e.preventDefault();
+                router.navigate('', {trigger: true});
+                window.location.reload();
             },
             onNameSet: function(name) {
                 dataManager.userName = name;
@@ -68,7 +74,7 @@ define(
                 this.goToVideo(this.videoCollection.findWhere({'video_clip': clip_name}));
             },
             render: function() {
-               this.$el.append(this.template({logo: this.logoURL, title: dataManager.data.title}));
+               this.$el.append(this.template({logo: this.logoURL, title: dataManager.data.title, page_url: this.getURL()}));
                this.addSubViews();
                return this;
             },
@@ -137,6 +143,9 @@ define(
 
                 oldSub.$el.removeClass('active').addClass('upcoming');
                 newSub.$el.removeClass('done').addClass('active');
+            },
+            getURL: function() {
+                 return 'http://' + window.location.hostname + window.location.pathname;
             }
         });
 });
