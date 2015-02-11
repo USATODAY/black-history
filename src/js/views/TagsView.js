@@ -16,7 +16,7 @@ define(
         events: {
             "click .tags-next-button": "onNextClick"
         },
-        className: 'iapp-panel upcoming',
+        className: 'iapp-panel iapp-tag-panel upcoming',
         template: templates['tags.html'],
         greetingTemplate: templates['greeting.html'],
         render: function(data) {

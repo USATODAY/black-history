@@ -45,11 +45,12 @@ div.non-article-content{
 
 .iapp-panel {
     @include panel();
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-.iapp-name-panel {
+.iapp-tag-panel {
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 /******
 

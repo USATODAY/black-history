@@ -87,15 +87,15 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="iapp-content-wrap">\n    ';
  if (userName != "") { ;
-__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
+__p += '\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
 ((__t = (userName)) == null ? '' : __t) +
 ', ' +
 ((__t = (intro)) == null ? '' : __t) +
-'</h4>\n    ';
+'</h2>\n    ';
 } else { ;
-__p += '\n    <h4 class=\'iapp-video-greeting\'>' +
+__p += '\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
 ((__t = (intro)) == null ? '' : __t) +
-'</h4>\n    ';
+'</h2>\n    ';
 };
 __p += '\n</div>';
 
@@ -127,22 +127,13 @@ return __p
 
 this["templates"]["name.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
+var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-name-greeting iapp-panel-text-main">' +
 ((__t = (greeting)) == null ? '' : __t) +
 '</h3>\n        <h2 class="iapp-name-info iapp-panel-text-main">' +
 ((__t = (name_text)) == null ? '' : __t) +
-'</h2>\n        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">\n        <div class="iapp-name-skip-button iapp-clickable">Skip</div>\n        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>\n    </div>\n</div>\n\n<div class="iapp-panel iapp-name-thankyou-panel upcoming">\n    <div class="iapp-content-wrap">\n        ';
- if (userName != "") { ;
-__p += '\n        <h2 class="iapp-name-info iapp-panel-text-main">Thank you, ' +
-((__t = (userName)) == null ? '' : __t) +
-'. We\'re getting someone for you.</h2>\n        ';
-} else { ;
-__p += '\n        <h2 class="iapp-name-info iapp-panel-text-main">Thank you. We\'re getting someone for you.</h2>\n        ';
-};
-__p += '\n    </div>\n</div>';
+'</h2>\n        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">\n        <div class="iapp-name-skip-button iapp-clickable">Skip</div>\n        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>\n    </div>\n</div>';
 
 }
 return __p
