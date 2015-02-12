@@ -7,10 +7,11 @@ define(
     'views/ShareView',
     'views/CreditView',
     'models/CreditsModel',
+    'models/config',
     'router',
     'templates'
   ],
-  function(jQuery, _, Backbone, BrightcoveView, ShareView, CreditsView, CreditsModel, router, templates) {
+  function(jQuery, _, Backbone, BrightcoveView, ShareView, CreditsView, CreditsModel, config, router, templates) {
 
     return Backbone.View.extend({
         initialize: function() {
@@ -162,7 +163,11 @@ define(
            
         },
         onVideoEnded: function() {
-            this.onTopicsClick();
+            if (!config.isMobile) {
+                Backbone.trigger('index:show');
+            }
+            
+            // this.onTopicsClick();
         }
     });
 

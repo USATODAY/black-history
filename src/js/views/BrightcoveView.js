@@ -97,14 +97,14 @@ define(
             },
 
             setVideo: function(bcId) {
-              console.log(this.bcPlayer);
+              // console.log(this.bcPlayer);
               this.bcPlayer.loadVideoByID(bcId);
             },
 
             onVideoEnded: function(bcObj) {
-              console.log(bcObj.experience);
+              // console.log(bcObj.experience);
               // bcObj.experience.unload();
-              console.log("remove");
+              // console.log("remove");
               // this.remove();
             } 
         });
