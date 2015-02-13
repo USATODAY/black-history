@@ -78,7 +78,20 @@ define(
             Backbone.trigger('video:set', this.selectedVideoModel);
         },
         onReplayClick: function() {
-            this.brightcoveView.bcPlayer.seek(0);
+            Backbone.trigger('index:hide');
+            this.brightcoveView.bcPlayer.getIsPlaying(cb);
+            var _this = this;
+            function cb(result) {
+                if (result) {
+                    _this.brightcoveView.bcPlayer.seek(0);
+                    
+                } else {
+                     _this.brightcoveView.bcPlayer.seek(0);
+                    _this.brightcoveView.playVideo();
+                    
+                }
+            }
+            
         },
         onPlayClick: function() {
             
