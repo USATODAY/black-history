@@ -6,11 +6,15 @@ Interactives video player with single clip
 
 
 <object id="myExperience<%=brightcoveid%>" class="BrightcoveExperience">
+  <% if (page_ssl) { %>
+    <param name="secureConnections" value="true" />
+    <param name="secureHTMLConnections" value="true" />
+  <%}%>
   <param name="bgcolor" value="#FFFFFF" />
   <param name="width" value="640" />
   <param name="height" value="390" />
-  <param name="playerID" value="1797379879001" />
-  <param name="playerKey" value="AQ~~,AAAABvaL8JE~,ufBHq_I6FnzwGj3ZkG57q5Cei-R6yZca" />
+  <param name="playerID" value="4191673832001" />
+  <param name="playerKey" value="AQ~~,AAAABvaL8JE~,ufBHq_I6Fnz1-5Tv-uC_zxqKqCr-Phqa" />
   <param name="isSlim" value="true" />
   <param name="dynamicStreaming" value="true" />
   <param name="includeAPI" value="true" />
@@ -18,6 +22,7 @@ Interactives video player with single clip
   <param name="@videoPlayer" value="<%=brightcoveid%>" />
   <param name="templateReadyHandler" value="onTemplateReady" />
   <param name="wmode" value="opaque" />
+  <param name="autoStart" value="false" />
 </object>
 
 
